@@ -1,0 +1,51 @@
+<script src="js/listFuncionariosCtrl.js"></script>
+<script src="lib/angular.min.js"></script>
+<style>
+	.jumbotron{
+		width: 800px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+  .center{
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div>   
+  <div class="jumbotron">
+    <div class="row content">
+      <div class="col-md-6">
+        <h2>Lista de Funcionários:</h2>
+      </div>
+        <div class="col-md-6">
+            <td><a class="btn btn-primary" href="#/CadastrarFuncionario">Cadastrar Novo Funcionário</a></td>
+        </div>
+      <div class="col-md-6">
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group input-group">
+            <input type="text" class="form-control" ng-model="test" placeholder="Search..">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>        
+          </div>
+        </form>
+      </div>
+    </div>
+    <div  ng-controller="listFuncionariosCtrl">
+      <div>
+        <table class="center">
+          <tr ng-repeat="funcionario in listFuncionarios | filter:test">
+           <td><h3>{{funcionario.nme_funcionario}}</h3></td>
+           <td><a class="btn btn-primary" href="#/funcionario/{{funcionario.cpf_funcionario}}">Ver Perfil</a></td>
+           <td><a class="btn btn-success" href="#">Atualizar Perfil</a></td>
+           <td><a class="btn btn-danger" ng-click="deleteFuncionarios(funcionario.cpf_funcionario)" href="#">Deletar Perfil</a></td>
+         </tr>
+       </table>
+     </div>
+   </div>
+ </div>
+</div>
+<div ng-include="'view/components/footer.html'"></div>

@@ -1,0 +1,32 @@
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/angular.min.js"></script>
+    <script src="js/principalCtrl.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <style>
+        .posterStyle{
+            width: 1200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <div class="container">
+
+        <div class="container text-center">
+            <h1>Bem-vindo ao SiAR</h1>
+            <p>Este é um sistema voltado para gerenciamento de funcionários como foco principal cadastro
+                e manipulação de informações relacionadas a cada funcionário e ponto eletrônico.</p>
+            </div>
+            <hr>
+        </div>
+        <!-- Example row of columns -->
+        <div class="container text-center">
+            <h2>Funcionários presentes neste momento:</h2>
+        </div>
+            <div class="list-group" ng-controller="principalCtrl" ng-repeat="employee in funcionario">
+                {{employee.nme_funcionario}}
+            </div>
+        <div ng-include="'view/components/footer.html'"></div>
+    </div> <!-- /container -->
