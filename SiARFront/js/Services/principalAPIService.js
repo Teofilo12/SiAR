@@ -3,7 +3,7 @@ angular.module("SiARBack").factory("principalAPI", function($http){
 		return $http.get("http://localhost/SiARBack/funcionario/?");
     };
     var _getFuncionario = function (cpf_funcionario) {
-      return $http.get("http://localhost/SiARBack/funcionario/" + cpf_funcionario);
+      return $http.get("http://localhost/SiARBack/funcionario/?" + cpf_funcionario);
   };
   return{
       getFuncionariosDoDia: _getFuncionariosDoDia,

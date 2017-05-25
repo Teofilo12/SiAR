@@ -1,6 +1,6 @@
 angular.module("SiARBack").factory ("funcionarioAPI",function($http){
 	var _cadastrarFuncionario = function(funcionario){
-		return $http.post("http://localhost/SiAR/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
+		return $http.post("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
 				+ funcionario.nme_funcionario + "&dta_nasc_funcionario=" + funcionario.dta_nasc_funcionario + "&cod_funcao="
 			    + funcionario.cod_funcao + "&tel_funcionario=" + funcionario.tel_funcionario + "&end_funcionario="
 			    + funcionario.end_funcionario + "&cod_restaurante=1&pwd_funcionario=" + funcionario.pwd_funcionario + "&rg_funcionario="
@@ -15,16 +15,12 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http){
 			usuario.email + "&birthdate=" + usuario.birthdate + "&senha=" + usuario.senha + 
 			"&cod_perfil=1")
 	}; */
-	var _getStatus = function (idt_usuario) {
-		return $http.get("http://localhost/projectSeries/usuario_assistindo/?idt_usuario=" + idt_usuario);
-	};
-	var _deletePerfil = function (email) {
-		console.log(email);
-		return $http.delete("http://localhost/projectSeries/usuario/?email=" + email);
+	var _deletePerfil = function (cpf_funcionario) {
+		console.log(cpf_funcionario);
+		return $http.delete("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + cpf_funcionario);
 	};
 	return {
         cadastrarFuncionario: _cadastrarFuncionario,
-		getStatus: _getStatus,
 		deletePerfil: _deletePerfil
 	};
 });

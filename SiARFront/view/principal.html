@@ -5,9 +5,13 @@
     <script src="js/principalCtrl.js"></script>
     <script src="lib/jquery.min.js"></script>
     <style>
-        .posterStyle{
-            width: 1200px;
+        .jumbotron{
+            width: 800px;
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .center{
             margin-left: auto;
             margin-right: auto;
         }
@@ -25,8 +29,16 @@
         <div class="container text-center">
             <h2>Funcionários presentes neste momento:</h2>
         </div>
-            <div class="list-group" ng-controller="principalCtrl" ng-repeat="employee in funcionario">
-                {{employee.nme_funcionario}}
-            </div>
+
+            <table class="jumbotron">
+                <tr class="center" ng-controller="principalCtrl" ng-repeat="employee in funcionario | filter:test">
+                    <td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>
+                    <td><h3>{{employee.nme_funcionario}}</h3></td>
+                    <td><a class="btn btn-primary" href="#/funcionario/{{employee.cpf_funcionario}}">Ver Perfil</a></td>
+                    <td><a class="btn btn-success" href="#">Atualizar Perfil</a></td>
+                    <td><a class="btn btn-danger" ng-click="deleteFuncionarios(employee.cpf_funcionario)" href="#">Deletar Perfil</a></td>
+                </tr>
+            </table>
+
+
         <div ng-include="'view/components/footer.html'"></div>
-    </div> <!-- /container -->

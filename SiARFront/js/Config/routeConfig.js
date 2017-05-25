@@ -21,12 +21,14 @@ angular.module("SiARBack").config(function($routeProvider){
         resolve: {
             funcionario: function(listFuncionariosAPI, $route){
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
-            },
-            status: function(funcionarioAPI, $route){
-                return funcionarioAPI.getStatus($route.current.params.cpf_funcionario);
             }
         }
 
+    });
+
+    $routeProvider.when("/CadastrarFuncionario",{
+        templateUrl: "view/CadastrarFuncionario.html",
+        controller: "CadastrarFuncionarioCtrl"
     });
     $routeProvider.otherwise({redirectTo:"/principal"})
 });

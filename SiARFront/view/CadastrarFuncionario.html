@@ -1,5 +1,5 @@
    <script src="lib/angular.min.js"></script>
-   <script src="js/signUpPageCtrl.js"></script>
+   <script src="js/CadastrarFuncionarioCtrl.js"></script>
    <script src="lib/jquery.min.js"></script>
    <style>
     .jumbotron{
@@ -17,25 +17,39 @@
         <br>
         <input type="text" name="cpf_funcionario" ng-model="funcionario.cpf_funcionario" class="form-control" placeholder="CPF" required/>
         <br>
-        <input type="number" name="tel_funcionario" ng-model="funcionario.tel_funcionario" class="form-control" placeholder="Telefone" required/>
+        <input type="text" name="rg_funcionario" ng-model="funcionario.rg_funcionario" class="form-control" placeholder="RG" required/>
         <br>
         <input type="date" name="dta_nasc_funcionario" ng-model="funcionario.dta_nasc_funcionario" class="form-control" placeholder="Data de Nascimento" required/>
-        <br>
-        <input type="text" name="sex_funcionario" ng-model="funcionario.sex_funcionario" class="form-control" placeholder="Sexo" required/>
-        <br>
-        <input type="text" name="rg_funcionario" ng-model="funcionario.rg_funcionario" class="form-control" placeholder="RG" required/>
         <br>
         <input type="text" name="end_funcionario" ng-model="funcionario.end_funcionario" class="form-control" placeholder="Endereço" required/>
         <br>
         <input type="text" name="end_nr_funcionario" ng-model="funcionario.end_nr_funcionario" class="form-control" placeholder="Número do Endereço" required/>
         <br>
-        <label for="img_funcionario">Foto</label>
+        <input type="text" name="cep_funcionario" ng-model="funcionario.cep_funcionario" class="form-control" placeholder="CEP" required/>
+        <br>
+        <input type="text" name="end_bairro_funcionario" ng-model="funcionario.end_bairro_funcionario" class="form-control" placeholder="Bairro" required/>
+        <br>
+        <input type="text" name="end_cidade_funcionario" ng-model="funcionario.end_cidade_funcionario" class="form-control" placeholder="Cidade" required/>
+        <br>
+        <input type="text" name="end_estado_funcionario" ng-model="funcionario.end_estado_funcionario" class="form-control" placeholder="Estado" required/>
+        <br>
+        <input type="number" name="tel_funcionario" ng-model="funcionario.tel_funcionario" class="form-control" placeholder="Telefone" required/>
+        <br>
+        <input type="text" name="cel_funcionario" ng-model="funcionario.cel_funcionario" class="form-control" placeholder="Celular" required/>
+        <br>
+        <input type="text" name="sex_funcionario" ng-model="funcionario.sex_funcionario" class="form-control" placeholder="Sexo" required/>
+        <br>
+        <input type="text" name="cod_estado_civil" ng-model="funcionario.cod_estado_civil" class="form-control" placeholder="Estado Civil" required/>
+        <br>
+        <input type="text" name="cod_restaurante" ng-model="funcionario.cod_restaurante" class="form-control" placeholder="Restaurante" required/>
+        <br>
+        <input type="option" name="cod_funcao" ng-model="funcionario.cod_funcao" class="form-control" placeholder="Função" required/>
+        <br>
         <input type="file" name="img_funcionario" ng-model="funcionario.img_funcionario" class="form-control" placeholder="Foto" required/>
         <br>
         <input type="pass" name="pwd_funcionario" ng-model="funcionario.pwd_funcionario" class="form-control" placeholder="Senha" required/>
-
         <br>
         
     </form>
-    <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="adicionarFuncionario(funcionario)"  type="submit">Registrar</button>
+    <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="adicionarFuncionario(funcionario)" type="submit">Registrar</button>
 </div>
