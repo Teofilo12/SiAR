@@ -1,7 +1,7 @@
-angular.module("SiARBack").controller("listFuncionariosCtrl", function ($scope, $http, funcionarioAPI, listFuncionariosAPI, $location)
+angular.module("SiARBack").controller("listFuncionariosCtrl", function ($scope, $http, listFuncionariosAPI)
 {
 	var carregarListFuncionarios = function() {
-		listFuncionariosAPI.getFuncionarios().success(function (data) {
+		listFuncionariosAPI.ionarios().success(function (data) {
 			$scope.listFuncionarios = data;
 		});
 	};

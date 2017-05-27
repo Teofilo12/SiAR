@@ -49,7 +49,7 @@ class CardapioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM ta_cardapio WHERE 1=1 AND ".$crit);
+        $result = $conn->query("SELECT * FROM ta_cardapio WHERE ".$crit);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 

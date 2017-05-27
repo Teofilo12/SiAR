@@ -40,10 +40,12 @@ class FuncaoController
         $db = new DBConnector("localhost", "bd_siar", "mysql", "", "root", "");
 
         $conn = $db->getConnection();
-
-        $result = $conn->query("SELECT dsc_funcao FROM tt_funcao WHERE " . $crit);
-
+//        $query = "INSERT INTO tt_funcao (dsc_funcao) VALUES ('Garçon 2')";
+        $result = $conn->query("SELECT * FROM tt_funcao WHERE " . $crit);
+//var_dump($result);die;
+        //var_dump($result->fetchAll(PDO::FETCH_ASSOC));
         return ($result->fetchAll(PDO::FETCH_ASSOC));
+        //return ($result);
 
     }
 
@@ -51,9 +53,9 @@ class FuncaoController
     {
         $criteria = "";
         foreach ($params as $key => $value) {
-            $criteria = $criteria . $key . " LIKE '%" . $value . "%' OR ";
+            $criteria = $criteria . $key . " LIKE '%" . $value . "%' ";
         }
-
+        return $criteria;
     }
 
 }

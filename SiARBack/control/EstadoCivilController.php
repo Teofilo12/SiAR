@@ -26,9 +26,10 @@ class EstadoCivilController
     {
         $criteria = "";
         foreach ($params as $key => $value) {
-            $criteria = $criteria . $key . " LIKE '%" . $value . "%' OR ";
+            $criteria = $criteria . $key . " LIKE '%" . $value . "%' ";
         }
 
+        return $criteria;
     }
 
 }

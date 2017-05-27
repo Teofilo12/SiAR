@@ -24,5 +24,6 @@ class RestauranteController
             $criteria = $criteria . $key . " LIKE '%" . $value . "%' OR ";
         }
 
+        return $criteria;
     }
 }

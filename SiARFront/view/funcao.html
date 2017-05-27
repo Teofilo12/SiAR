@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="lib/angular.min.js"></script>
+        <script src="js/funcaoCtrl.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <style>
+            .jumbotron{
+                width: 800px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .center{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+        <div class="container">
+
+            <div class="container text-center">
+                <h1>Bem-vindo ao SiAR</h1>
+                <p>Este é um sistema voltado para gerenciamento de funcionários como foco principal cadastro
+                    e manipulação de informações relacionadas a cada funcionário e ponto eletrônico.</p>
+            </div>
+            <hr>
+        </div>
+        <!-- Example row of columns -->
+        <div class="container text-center">
+            <h2>Funcionários presentes neste momento:</h2>
+        </div>
+
+        <table class="jumbotron">
+            <tr class="center" ng-controller="funcaoCtrl" ng-repeat="func in funcao">
+                <td>{{func.dsc_funcao}}</td>
+            </tr>
+        </table>
+
+
+        <div ng-include="'view/components/footer.html'"></div>
+    </title>
+</head>
+<body>
+
+</body>
+</html>

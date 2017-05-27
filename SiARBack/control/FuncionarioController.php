@@ -76,7 +76,7 @@ class FuncionarioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM tb_funcionario WHERE 1=1 AND ".$crit);
+        $result = $conn->query("SELECT * FROM tb_funcionario WHERE ".$crit);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 

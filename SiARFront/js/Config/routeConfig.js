@@ -7,12 +7,11 @@ angular.module("SiARBack").config(function($routeProvider){
 	$routeProvider.when("/listFuncionarios",{
 		templateUrl: "view/listFuncionarios.html",
 		controller: "listFuncionariosCtrl",
-		resolve: {
-			funcionarios: function(listFuncionariosAPI){
-				return listFuncionariosAPI.getFuncionarios();
-			}
-		}
-
+        resolve: {
+            funcionarios: function (listFuncionariosAPI) {
+                return listFuncionariosAPI.getFuncionarios();
+            }
+        }
 	});
 
     $routeProvider.when("/funcionario/:cpf_funcionario",{
@@ -24,6 +23,11 @@ angular.module("SiARBack").config(function($routeProvider){
             }
         }
 
+    });
+
+    $routeProvider.when("/CadastrarCardapio",{
+        templateUrl: "view/CadastrarCardapio.html",
+        controller: "CadastrarCardapioCtrl"
     });
 
     $routeProvider.when("/CadastrarFuncionario",{
