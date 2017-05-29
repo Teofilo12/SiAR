@@ -18,6 +18,10 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 			$location.path("/principal");
 			$scope.FuncionarioForm.$setPristine();
 		});
-
 	};
+    $scope.carregarEstadosCivis = function(idt_estado_civil) {
+        $http.get("http://localhost/SiARBack/estado_civil/?idt_estado_civil=" + idt_estado_civil).success(function (data) {
+        });
+    };
+
 });

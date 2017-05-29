@@ -38,15 +38,11 @@
         </form>
       </div>
     </div>
-    <div  ng-controller="listFuncionariosCtrl">
-      <div>
-        <table class="center">
-          <tr ng-repeat="listfunc in listFuncionarios | filter:test">
-           <td><h3>{{listfunc.nme_funcionario}}</h3></td>
-         </tr>
-       </table>
-     </div>
-   </div>
+          <div class="list-group" ng-controller="listFuncionariosCtrl">
+              <div ng-repeat="listfunc in listFuncionarios | filter:test">
+                  <a href="#/funcionario/{{listfunc.cpf_funcionario}}" class="list-group-item">{{listfunc.nme_funcionario}}</a>
+              </div>
+          </div>
  </div>
 </div>
 <div ng-include="'view/components/footer.html'"></div>

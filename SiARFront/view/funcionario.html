@@ -13,28 +13,60 @@
 <body>
   
   <div class="container text-center">    
-    <div class="row">
+    <div class="row" ng-repeat="employee in funcionario">
       <div class="col-sm-3 well">
+          <div class="well">
+              Image:
+              <!-- <img ng-src="{{content}}"> -->
+              <!-- <img data-ng-src="data:image/png;base64,{{b64encoded}}"> -->
+              <img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}">
+          </div>
         <div class="well">
-          <h1 ng-repeat="employee in funcionario">{{employee.nme_funcionario}}</h1>
+          <h1>{{employee.nme_funcionario}}</h1>
         </div>
-        <div class="well">
-         <h3>Total de Episódios assistidos:</h3>
-             <h2>asdasdasd</h2>
-       </div>
      </div>
      <div class="col-sm-7">
+         <h2><p contenteditable="true">Informações:</p></h2>
        <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default text-left">
+        <div class="col-sm-3">
             <div class="panel-body">
-              <h2><p contenteditable="true">Last episodes watched:</p></h2>
-              <div>
-               <p>asd >> Season asd Episode asd</p>
+                  <h3>CPF:</h3>
+                  {{employee.cpf_funcionario}}
              </div>
+        </div>
+           <div class="col-sm-3">
+               <div class="panel-body">
+                   <h3>RG:</h3>
+                   {{employee.rg_funcionario}}
+               </div>
            </div>
-         </div>
-       </div>
+           <div class="col-sm-3">
+               <div class="panel-body">
+                   <h3>Data de Nascimento:</h3>
+                   {{employee.dta_nasc_funcionario}}
+               </div>
+           </div>
+                  <h3>Função:</h3>
+                  {{employee.cod_funcao}}
+                  <h3>Telefone:</h3>
+                  {{employee.tel_funcionario}}
+                  <h3>Celular:</h3>
+                  {{employee.cel_funcionario}}
+                  <h3>CEP:</h3>
+                  {{employee.cep_funcionario}}
+                  <h3>Endereço:</h3>
+                  {{employee.end_funcionario}}
+                  <h3>Número:</h3>
+                  {{employee.end_nr_funcionario}}
+                  <h3>Bairro:</h3>
+                  {{employee.end_bairro_funcionario}}
+                  <h3>Cidade:</h3>
+                  {{employee.end_cidade_funcionario}}
+                  <h3>Estado:</h3>
+                  {{employee.end_estado_funcionario}}
+                  <h3>Sexo:</h3>
+                  {{employee.sex_funcionario}}
+                <!--  <h3>{{employee.cod_estado_civil}}</h3> -->
      </div>
    </div>    
  </div>

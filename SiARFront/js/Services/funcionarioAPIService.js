@@ -10,12 +10,13 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http){
             + funcionario.img_funcionario + "&end_bairro_funcionario=" + funcionario.end_bairro_funcionario + "&end_cidade_funcionario="
             + funcionario.end_cidade_funcionario + "&end_estado_funcionario=" + funcionario.end_estado_funcionario)
 	};
-	var _deletePerfil = function (cpf_funcionario) {
+
+	var _deleteCadastro = function (cpf_funcionario) {
 		console.log(cpf_funcionario);
 		return $http.delete("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + cpf_funcionario);
 	};
 	return {
         cadastrarFuncionario: _cadastrarFuncionario,
-		deletePerfil: _deletePerfil
+        deleteCadastro: _deleteCadastro
 	};
 });
