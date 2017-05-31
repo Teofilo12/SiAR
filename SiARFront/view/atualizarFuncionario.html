@@ -1,5 +1,5 @@
 <script src="lib/angular.min.js"></script>
-<script src="js/CadastrarFuncionarioCtrl.js"></script>
+<script src="js/Controller/atualizarFuncionarioCtrl.js"></script>
 <script src="lib/jquery.min.js"></script>
 <style>
     .jumbotron{
@@ -67,7 +67,7 @@
         <input type="option" name="cod_funcao" ng-model="funcionario.cod_funcao" class="form-control" placeholder="Função" required id="linha3"/>
         <input type="text" name="cod_restaurante" ng-model="funcionario.cod_restaurante" class="form-control" placeholder="Restaurante" required id="linha3"/>
         <br><br><br>
-        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="adicionarFuncionario(funcionario)" type="submit" id="button" >Registrar</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="updateFuncionario(funcionario)" type="submit" id="button" >Atualizar</button>
     </form>
 
 </div>

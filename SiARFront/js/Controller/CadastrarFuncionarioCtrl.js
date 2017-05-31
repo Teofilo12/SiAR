@@ -16,7 +16,7 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 			delete $scope.funcionario;
 			alert("Funcionário Cadastrado com Sucesso!");
 			$location.path("/principal");
-			$scope.FuncionarioForm.$setPristine();
+			$scope.funcionarioForm.$setPristine();
 		});
 	};
     $scope.carregarEstadosCivis = function(idt_estado_civil) {

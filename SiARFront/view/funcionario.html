@@ -24,7 +24,10 @@
         <div class="well">
           <h1>{{employee.nme_funcionario}}</h1>
         </div>
+          <a class="btn btn-success" href="#/atualizarFuncionario/{{employee.cpf_funcionario}}">Atualizar Perfil</a><
+          <a class="btn btn-danger" ng-click="deleteFuncionario(employee.cpf_funcionario)" href="#">Deletar Perfil</a>
      </div>
+
      <div class="col-sm-7">
          <h2><p contenteditable="true">Informações:</p></h2>
        <div class="row">

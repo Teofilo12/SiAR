@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/listFuncionariosCtrl.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<style>
+    .jumbotron{
+        width: 800px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div>
+    <div class="jumbotron">
+        <div class="row content">
+            <div class="col-md-6">
+                <h2>Lista de Funcionários:</h2>
+            </div>
+            <div class="col-md-6">
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control" ng-model="test" placeholder="Search..">
+                        <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="list-group" ng-controller="listFuncionariosCtrl">
+            <div ng-repeat="listfunc in listFuncionarios | filter:test">
+                <a href="#/funcionario/{{listfunc.cod_funcao}}" class="list-group-item">{{listfunc.dsc_funcao}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'view/components/footer.html'"></div>

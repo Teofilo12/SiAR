@@ -8,12 +8,12 @@ angular.module("SiARBack").controller("listFuncionariosCtrl", function ($scope, 
     };
     var carregarListFuncionariosPorFuncao = function() {
         listFuncionariosAPI.getFuncoes().success(function (data) {
-            $scope.listFuncionarios = data;
+            $scope.listFuncionariosPorFuncao = data;
         });
     };
 
     $scope.deleteFuncionarios = function (cpf_funcionario) {
-        funcionarioAPI.deletePerfil(cpf_funcionario).success(function (data) {
+        funcionarioAPI.deleteCadastro(cpf_funcionario).success(function (data) {
             alert("Funcionário excluído com sucesso!");
         });
     };

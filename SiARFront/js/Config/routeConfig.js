@@ -10,6 +10,9 @@ angular.module("SiARBack").config(function($routeProvider){
         resolve: {
             funcionarios: function (listFuncionariosAPI) {
                 return listFuncionariosAPI.getFuncionarios();
+            },
+            funcao: function (listFuncionariosAPI) {
+                return listFuncionariosAPI.getFuncoes();
             }
         }
 	});
@@ -18,21 +21,44 @@ angular.module("SiARBack").config(function($routeProvider){
         templateUrl: "view/funcionario.html",
         controller: "funcionarioCtrl",
         resolve: {
-            funcionario: function(listFuncionariosAPI, $route){
+            funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
-            }
+            },
         }
 
-    });
-
-    $routeProvider.when("/CadastrarCardapio",{
-        templateUrl: "view/CadastrarCardapio.html",
-        controller: "CadastrarCardapioCtrl"
     });
 
     $routeProvider.when("/CadastrarFuncionario",{
         templateUrl: "view/CadastrarFuncionario.html",
         controller: "CadastrarFuncionarioCtrl"
+    });
+
+    $routeProvider.when("/atualizarFuncionario/:cpf_funcionario",{
+        templateUrl: "view/atualizarFuncionario.html",
+        controller: "atualizarFuncionarioCtrl",
+        resolve:{
+            funcionario: function(funcionarioAPI, $route){
+                return funcionarioAPI.carregarFuncionario($route.current.params.cpf_funcionario);
+            }
+        }
+
+    });
+
+    $routeProvider.when("/funcionario/:cod_funcao",{
+        templateUrl: "view/funcionario.html",
+        controller: "funcionarioCtrl",
+        resolve: {
+            funcao: function (listFuncionariosAPI) {
+                return listFuncionariosAPI.getFuncoes();
+            },
+        }
+
+    });
+
+
+    $routeProvider.when("/CadastrarCardapio",{
+        templateUrl: "view/CadastrarCardapio.html",
+        controller: "CadastrarCardapioCtrl"
     });
     $routeProvider.otherwise({redirectTo:"/principal"})
 });
