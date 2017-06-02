@@ -6,17 +6,17 @@ angular.module("SiARBack").controller("listFuncionariosCtrl", function ($scope, 
             $scope.listFuncionarios = data;
         });
     };
-    var carregarListFuncionariosPorFuncao = function() {
-        listFuncionariosAPI.getFuncoes().success(function (data) {
-            $scope.listFuncionariosPorFuncao = data;
-        });
-    };
+    // var carregarListFuncionariosPorFuncao = function() {
+    //     listFuncionariosAPI.getFuncoes().success(function (data) {
+    //         $scope.listFuncionariosPorFuncao = data;
+    //     });
+    // };
 
-    $scope.deleteFuncionarios = function (cpf_funcionario) {
-        funcionarioAPI.deleteCadastro(cpf_funcionario).success(function (data) {
-            alert("Funcionário excluído com sucesso!");
-        });
-    };
+    // $scope.deleteFuncionarios = function (cpf_funcionario) {
+    //     funcionarioAPI.deleteCadastro(cpf_funcionario).success(function (data) {
+    //         alert("Funcionário excluído com sucesso!");
+    //     });
+    // };
 	carregarListFuncionarios();
-    carregarListFuncionariosPorFuncao();
+   // carregarListFuncionariosPorFuncao();
 });

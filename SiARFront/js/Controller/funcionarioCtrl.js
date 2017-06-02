@@ -1,4 +1,4 @@
-angular.module("SiARBack").controller("funcionarioCtrl", function ($scope, $http, $routeParams, funcionario, funcionarioAPI)
+    angular.module("SiARBack").controller("funcionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI)
 {
 	$scope.funcionario = funcionario.data;
 

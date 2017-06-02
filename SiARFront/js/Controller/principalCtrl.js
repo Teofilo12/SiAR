@@ -1,7 +1,7 @@
-angular.module("SiARBack").controller("principalCtrl", function($scope, $http)
+angular.module("SiARBack").controller("principalCtrl", function($scope, $http, config)
 {
 		var carregarFuncionariosDoDia = function() {
-			$http.get("http://localhost/SiARBack/funcionario/?").success(function (data) {
+			$http.get(config.baseUrl + "/funcionario/?").success(function (data) {
 				$scope.funcionario = data;
 			});
 		};

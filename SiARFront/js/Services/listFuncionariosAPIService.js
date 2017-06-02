@@ -1,15 +1,16 @@
-angular.module("SiARBack").factory("listFuncionariosAPI", function($http){
+angular.module("SiARBack").factory("listFuncionariosAPI", function($http, config){
+
 	var _getFuncionarios = function () {
-		return $http.get("http://localhost/SiARBack/funcionario/?");
+		return $http.get(config.baseUrl + "/funcionario/?");
     };
 	var _getFuncoes = function () {
-        return $http.get("http://localhost/SiARBack/funcao/?");
+        return $http.get(config.baseUrl + "/funcao/?");
     };
     var _getFuncionario = function (cpf_funcionario) {
-      return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + cpf_funcionario);
+      return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + cpf_funcionario);
   };
   var _login = function(funcionario){
-      return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
+      return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
                                                               "&pwd_funcionario=" + funcionario.pwd_funcionario);
   };
   return{

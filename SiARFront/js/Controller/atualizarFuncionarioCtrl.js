@@ -32,7 +32,7 @@ angular.module("SiARBack").controller("atualizarFuncionarioCtrl", function ($sco
     $scope.updateFuncionario = function(funcionario){
         $scope.adicionarF;
         funcionario.dta_nasc_funcionario = formatDate(funcionario.dta_nasc_funcionario);
-        funcionarioAPI.atualizarFuncionario(funcionario).success(function(data){
+        funcionarioAPI.putFuncionario(funcionario).success(function(data){
             delete $scope.funcionario;
             alert("Funcionário Alterado com Sucesso!");
             $location.path("/principal");

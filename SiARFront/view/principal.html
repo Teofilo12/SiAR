@@ -32,7 +32,7 @@
 
             <table class="jumbotron">
                 <tr class="center" ng-controller="principalCtrl" ng-repeat="employee in funcionario | filter:test">
-                    <td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>
+                  <td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>
                     <td><h3>{{employee.nme_funcionario}}</h3></td>
                     <td><a class="btn btn-primary" href="#/funcionario/{{employee.cpf_funcionario}}">Ver Perfil</a></td>  </tr>
             </table>

@@ -12,7 +12,7 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 	$scope.adicionarFuncionario = function(funcionario){
 		$scope.adicionarF;
         funcionario.dta_nasc_funcionario = formatDate(funcionario.dta_nasc_funcionario);
-        funcionarioAPI.cadastrarFuncionario(funcionario).success(function(data){
+        funcionarioAPI.postFuncionario(funcionario).success(function(data){
 			delete $scope.funcionario;
 			alert("Funcionário Cadastrado com Sucesso!");
 			$location.path("/principal");

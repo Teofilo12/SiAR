@@ -30,12 +30,16 @@ class CardapioController
 
     public function generateInsertQuery($menu)
     {
-        $query = "INSERT INTO ta_cardapio (idt_cardapio,itm_cardapio,cod_categoria,cod_restaurante,vlr_itm_cardapio
+        $query = "INSERT INTO ta_cardapio (itm_cardapio,cod_categoria,
+                                           cod_restaurante,vlr_itm_cardapio,
                                            img_cardapio,dsc_itm_cardapio)
                   VALUES
-                        ('".$menu->getIdtCardapio()."','".$menu->getItmCardapio().$menu->getCodCategoria."','".
-                            $menu->getCodRestaurante()."','".$menu->getVlrItmCardapio()."','".$menu->getImgCardapio()."','".
-                            $menu->getDscItmCardapio()."')";
+                                ('".$menu->getItmCardapio()."','".
+                                    $menu->getCodCategoria()."','".
+                                    $menu->getCodRestaurante()."','".
+                                    $menu->getVlrItmCardapio()."','".
+                                    $menu->getImgCardapio()."','".
+                                    $menu->getDscItmCardapio()."')";
 
         return $query;
     }

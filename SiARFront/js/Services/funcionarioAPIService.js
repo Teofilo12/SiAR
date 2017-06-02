@@ -1,6 +1,7 @@
-angular.module("SiARBack").factory ("funcionarioAPI",function($http){
-    var _cadastrarFuncionario = function(funcionario){
-        return $http.post("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
+angular.module("SiARBack").factory ("funcionarioAPI",function($http, config){
+
+    var _postFuncionario = function(funcionario){
+        return $http.post(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
             + funcionario.nme_funcionario + "&dta_nasc_funcionario=" + funcionario.dta_nasc_funcionario + "&cod_funcao="
             + funcionario.cod_funcao + "&tel_funcionario=" + funcionario.tel_funcionario + "&end_funcionario="
             + funcionario.end_funcionario + "&cod_restaurante=1&pwd_funcionario=" + funcionario.pwd_funcionario + "&rg_funcionario="
@@ -11,8 +12,8 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http){
             + funcionario.end_cidade_funcionario + "&end_estado_funcionario=" + funcionario.end_estado_funcionario)
 	};
 
-    var _atualizarFuncionario = function(funcionario){
-        return $http.put("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
+    var _putFuncionario = function(funcionario){
+        return $http.put(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario + "&nme_funcionario="
             + funcionario.nme_funcionario + "&dta_nasc_funcionario=" + funcionario.dta_nasc_funcionario + "&cod_funcao="
             + funcionario.cod_funcao + "&tel_funcionario=" + funcionario.tel_funcionario + "&end_funcionario="
             + funcionario.end_funcionario + "&cod_restaurante=1&pwd_funcionario=" + funcionario.pwd_funcionario + "&rg_funcionario="
@@ -23,18 +24,17 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http){
             + funcionario.end_cidade_funcionario + "&end_estado_funcionario=" + funcionario.end_estado_funcionario)
     };
 
-    var _carregarFuncionario = function (cpf_funcionario) {
-        return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + cpf_funcionario);
+    var _getFuncionario = function (cpf_funcionario) {
+        return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + cpf_funcionario);
     };
 
 	var _deleteCadastro = function (cpf_funcionario) {
-		// console.log(cpf_funcionario);
-		return $http.delete("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + cpf_funcionario);
+		return $http.delete(config.baseUrl + "/funcionario/?cpf_funcionario=" + cpf_funcionario);
 	};
 	return {
-        cadastrarFuncionario: _cadastrarFuncionario,
-        carregarFuncionario: _carregarFuncionario,
-        atualizarFuncionario: _atualizarFuncionario,
+        getFuncionario: _getFuncionario,
+        postFuncionario: _postFuncionario,
+        putFuncionario: _putFuncionario,
         deleteCadastro: _deleteCadastro
 	};
 });

@@ -10,12 +10,18 @@ angular.module("SiARBack").config(function($routeProvider){
         resolve: {
             funcionarios: function (listFuncionariosAPI) {
                 return listFuncionariosAPI.getFuncionarios();
-            },
-            funcao: function (listFuncionariosAPI) {
-                return listFuncionariosAPI.getFuncoes();
             }
         }
 	});
+	$routeProvider.when("/pontoEletronico",{
+        templateUrl: "view/pontoEletronico.html",
+        controller: "pontoEletronicoCtrl",
+        resolve: {
+            ponto_eletronico: function (pontoEletronicoAPI) {
+                return pontoEletronicoAPI.getPontosBatidos();
+            }
+        }
+    });
 
     $routeProvider.when("/funcionario/:cpf_funcionario",{
         templateUrl: "view/funcionario.html",
@@ -25,7 +31,6 @@ angular.module("SiARBack").config(function($routeProvider){
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
         }
-
     });
 
     $routeProvider.when("/CadastrarFuncionario",{
@@ -38,7 +43,7 @@ angular.module("SiARBack").config(function($routeProvider){
         controller: "atualizarFuncionarioCtrl",
         resolve:{
             funcionario: function(funcionarioAPI, $route){
-                return funcionarioAPI.carregarFuncionario($route.current.params.cpf_funcionario);
+                return funcionarioAPI.getFuncionario($route.current.params.cpf_funcionario);
             }
         }
 
@@ -55,10 +60,21 @@ angular.module("SiARBack").config(function($routeProvider){
 
     });
 
-
     $routeProvider.when("/CadastrarCardapio",{
         templateUrl: "view/CadastrarCardapio.html",
         controller: "CadastrarCardapioCtrl"
     });
+
+    $routeProvider.when("/cardapio",{
+        templateUrl: "view/cardapio.html",
+        controller: "cardapioCtrl",
+        resolve: {
+            cardapio: function (cardapioAPI) {
+                return cardapioAPI.getItensDoCardapio();
+            },
+        }
+
+    });
+
     $routeProvider.otherwise({redirectTo:"/principal"})
 });

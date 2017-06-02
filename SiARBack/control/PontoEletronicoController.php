@@ -25,11 +25,10 @@ class PontoEletronicoController
 
     private function generateInsertQuery($point)
     {
-        $query =  "INSERT INTO tb_ponto_eletronico (idt_ponto_eletronico, cod_funcionario, ponto_hr_entrada, ponto_hr_saida) 
-                   VALUES   ('".$point->getIdtPontoEletronico()."','".
-            $point->getCodFuncionario()."','".
-            $point->getPontoHrEntrada()."','".
-            $point->getPontoHrSaida()."')";
+        $query =  "INSERT INTO tb_ponto_eletronico (cod_funcionario, ponto_hr_entrada, ponto_hr_saida) 
+                   VALUES   ('".$point->getCodFuncionario()."','".
+                                $point->getPontoHrEntrada()."','".
+                                $point->getPontoHrSaida()."')";
 
         return $query;
     }
@@ -43,7 +42,12 @@ class PontoEletronicoController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM tb_ponto_eletronico WHERE 1=1 AND ".$crit);
+        $result = $conn->query("SELECT func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
+                                          FROM tb_ponto_eletronico AS pe, tb_funcionario AS func
+                                          WHERE func.cpf_funcionario = pe.cod_funcionario AND ".$crit);
+
+       // $result = $conn->query("SELECT * FROM tb_ponto_eletronico WHERE ".$crit);
+
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 

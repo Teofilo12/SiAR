@@ -1,5 +1,5 @@
 <script src="lib/angular.min.js"></script>
-<script src="js/CadastrarCardapioCtrl.js"></script>
+<script src="js/cardapioCtrl.js"></script>
 <script src="lib/jquery.min.js"></script>
 <style>
     .jumbotron{
@@ -52,7 +52,7 @@
         <input type="text" name="cod_restaurante" ng-model="cardapio.cod_restaurante" class="form-control" placeholder="Restaurante" required id="linha2"/>
         <input type="text" name="dsc_itm_cardapio" ng-model="cardapio.dsc_itm_cardapio" class="form-control" placeholder="Descrição do Item" required id="linha2"/>
         <br><br><br>
-        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="adicionarItemNoCardapio(cardapio)" type="submit" id="button" >Registrar</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="inserirItem(cardapio)" type="submit" id="button" >Registrar</button>
     </form>
 
 </div>
