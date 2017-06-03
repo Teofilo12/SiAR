@@ -33,12 +33,11 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http, config){
 	};
 
 	var _getEstadoCivil = function () {
-        console.log('estou aqui 2');
-        return $http.get("http://localhost/SiARBack/estado_civil/?");
+        return $http.get(confif.baseUrl + "/estado_civil/?");
 	};
 
     var _login = function(funcionario){
-        return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
+        return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
                                                                "&cod_funcao=1&pwd_funcionario=" + funcionario.pwd_funcionario);
     };
 	return {

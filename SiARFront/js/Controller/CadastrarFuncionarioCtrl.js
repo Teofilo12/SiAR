@@ -23,11 +23,4 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 		funcionarioAPI.getEstadoCivil().success(function (data) {
           $scope.estadocivil = data;
      	});
-	
-	
-    $scope.carregarEstadosCivis = function(idt_estado_civil) {
-        $http.get("http://localhost/SiARBack/estado_civil/?idt_estado_civil=" + idt_estado_civil).success(function (data) {
-        });
-    };
-
 });
