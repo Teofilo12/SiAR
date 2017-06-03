@@ -31,10 +31,22 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http, config){
 	var _deleteCadastro = function (cpf_funcionario) {
 		return $http.delete(config.baseUrl + "/funcionario/?cpf_funcionario=" + cpf_funcionario);
 	};
+
+	var _getEstadoCivil = function () {
+        console.log('estou aqui 2');
+        return $http.get("http://localhost/SiARBack/estado_civil/?");
+	};
+
+    var _login = function(funcionario){
+        return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
+                                                               "&cod_funcao=1&pwd_funcionario=" + funcionario.pwd_funcionario);
+    };
 	return {
         getFuncionario: _getFuncionario,
         postFuncionario: _postFuncionario,
         putFuncionario: _putFuncionario,
-        deleteCadastro: _deleteCadastro
+        deleteCadastro: _deleteCadastro,
+        getEstadoCivil: _getEstadoCivil,
+        login: _login
 	};
 });

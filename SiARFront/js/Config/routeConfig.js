@@ -1,8 +1,12 @@
 angular.module("SiARBack").config(function($routeProvider){
-	$routeProvider.when("/principal",{
-		templateUrl: "view/principal.html",
-		controller: "principalCtrl"
+	$routeProvider.when("/login",{
+		templateUrl: "view/login.html",
+		controller: "loginCtrl"
 	});
+    $routeProvider.when("/principal",{
+        templateUrl: "view/principal.html",
+        controller: "principalCtrl"
+    });
 
 	$routeProvider.when("/listFuncionarios",{
 		templateUrl: "view/listFuncionarios.html",
@@ -76,5 +80,5 @@ angular.module("SiARBack").config(function($routeProvider){
 
     });
 
-    $routeProvider.otherwise({redirectTo:"/principal"})
+    $routeProvider.otherwise({redirectTo:"/login"})
 });

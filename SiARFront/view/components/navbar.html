@@ -1,5 +1,10 @@
-
-
+<style>
+  .porraqui{
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+  }
+</style>
+<script src="js/Controller/funcionarioCtrl.js"></script>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -42,8 +47,8 @@
           </div>
         </div>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>  Fazer Login</a></li>
+      <ul class="nav navbar-nav navbar-right" ng-controller="funcionarioCtrl" ng-repeat="func in funcionario">
+        <li ><a id="porraqui" href="#"><span class="glyphicon glyphicon-log-in"></span>func.nme_funcionario</a></li>
       </ul>
     </div>
   </div>
