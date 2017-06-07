@@ -33,8 +33,20 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http, config){
 	};
 
 	var _getEstadoCivil = function () {
-        return $http.get(confif.baseUrl + "/estado_civil/?");
-	};
+        return $http.get(config.baseUrl + "/estado_civil/?");
+    };
+
+    var _getSexo = function () {
+        return $http.get(config.baseUrl + "/sexo/?");
+    };
+
+    var _getFuncao = function () {
+        return $http.get(config.baseUrl + "/funcao/?");
+    };
+
+	var _getRestaurante = function () {
+        return $http.get(config.baseUrl + "/restaurante/?");
+    };
 
     var _login = function(funcionario){
         return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
@@ -46,6 +58,9 @@ angular.module("SiARBack").factory ("funcionarioAPI",function($http, config){
         putFuncionario: _putFuncionario,
         deleteCadastro: _deleteCadastro,
         getEstadoCivil: _getEstadoCivil,
+        getFuncao: _getFuncao,
+        getRestaurante: _getRestaurante,
+        getSexo: _getSexo,
         login: _login
 	};
 });

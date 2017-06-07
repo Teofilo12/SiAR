@@ -22,5 +22,17 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 
 		funcionarioAPI.getEstadoCivil().success(function (data) {
           $scope.estadocivil = data;
-     	});
+        });
+
+		funcionarioAPI.getRestaurante().success(function (data) {
+			$scope.restauranteF = data;
+		});
+
+		funcionarioAPI.getFuncao().success(function (data) {
+			$scope.funcionarioFuncao = data;
+		});
+
+		funcionarioAPI.getSexo().success(function (data) {
+			$scope.sexoF = data;
+		});
 });
