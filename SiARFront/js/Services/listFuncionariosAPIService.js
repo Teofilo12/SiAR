@@ -1,4 +1,4 @@
-angular.module("SiARBack").factory("listFuncionariosAPI", function($http, config){
+angular.module("SiAR").factory("listFuncionariosAPI", function($http, config){
 
 	var _getFuncionarios = function () {
 		return $http.get(config.baseUrl + "/funcionario/?");
