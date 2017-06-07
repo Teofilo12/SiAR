@@ -1,4 +1,4 @@
-angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
+angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
 {
 	$scope.funcionario = {};
 
