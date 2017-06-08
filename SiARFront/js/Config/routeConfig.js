@@ -17,8 +17,8 @@ angular.module("SiAR").config(function($routeProvider){
             }
         }
 	});
-	$routeProvider.when("/pontoEletronico",{
-        templateUrl: "view/pontoEletronico.html",
+	$routeProvider.when("/pontosBatidos",{
+        templateUrl: "view/pontosBatidos.html",
         controller: "pontoEletronicoCtrl",
         resolve: {
             ponto_eletronico: function (pontoEletronicoAPI) {

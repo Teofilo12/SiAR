@@ -31,8 +31,4 @@ angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, 
 		funcionarioAPI.getFuncao().success(function (data) {
 			$scope.funcionarioFuncao = data;
 		});
-
-		funcionarioAPI.getSexo().success(function (data) {
-			$scope.sexoF = data;
-		});
 });

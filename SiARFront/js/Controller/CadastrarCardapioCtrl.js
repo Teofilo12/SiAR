@@ -12,4 +12,8 @@ angular.module("SiAR").controller("CadastrarCardapioCtrl", function ($scope, $ht
         });
     };
 
+    cardapioAPI.getCategorias().success(function (data) {
+        $scope.categoria = data;
+    })
+
 });
