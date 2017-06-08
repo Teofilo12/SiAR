@@ -13,12 +13,12 @@ angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($sc
         $scope.funcionario = data;
     });
 
-  //  $scope.carregarTurnosFuncionario = function (cod_funcionario) {
-    //  funcionarioAPI.getTurnosFuncionario(cod_funcionario).success( function (data) {
-      //    $location.path("/CadastrarTurnosFuncionario/:cod_funcionario");
-        //  $scope.cadastroTurnosFuncionario = data;
-        //}
-   // )};
+    $scope.carregarTurnosFuncionario = function (cod_funcionario) {
+      funcionarioAPI.getTurnosFuncionario(cod_funcionario).success( function (data) {
+          $location.path("/CadastrarTurnosFuncionario/:cod_funcionario");
+          $scope.cadastroTurnosFuncionario = data;
+        }
+    )};
 
     $scope.AdicionarTurno = function (turnos_funcionario) {
         $scope.adicionar;
