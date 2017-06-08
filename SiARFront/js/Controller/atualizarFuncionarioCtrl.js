@@ -1,4 +1,4 @@
-angular.module("SiARBack").controller("atualizarFuncionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI, $location)
+angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI, $location)
 {
     // var formatDate = function (date) {
     //     var day = date.getDate();
@@ -6,6 +6,10 @@ angular.module("SiARBack").controller("atualizarFuncionarioCtrl", function ($sco
     //     var year = date.getFullYear();
     //     return year + "-" + month + "-" + day;
     // };
+    funcionarioAPI.getEstadoCivil().success(function (data) {
+        $scope.estadocivil = data;
+    });
+
     var ToObject = function (funcionario) {
         return {
             img_funcionario: funcionario[0].img_funcionario,

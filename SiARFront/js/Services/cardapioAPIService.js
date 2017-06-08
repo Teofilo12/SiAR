@@ -1,4 +1,4 @@
-angular.module("SiARBack").factory ("cardapioAPI",function($http, config){
+angular.module("SiAR").factory ("cardapioAPI",function($http, config){
 
     var _postItemNoCardapio = function(cardapio){
         return $http.post(config.baseUrl + "/cardapio/?idt_cardapio=1&itm_cardapio="
@@ -14,9 +14,14 @@ angular.module("SiARBack").factory ("cardapioAPI",function($http, config){
         return $http.get(config.baseUrl + "/cardapio/?idt_cardapio=" + idt_cardapio);
     };
 
+    var _getCategorias = function () {
+        return $http.get(config.baseUrl + "/categoria/?");
+    };
+
     return {
         postItemNoCardapio: _postItemNoCardapio,
         getItensDoCardapio: _getItensDoCardapio,
-        getItemDoCardapio: _getItemDoCardapio
+        getItemDoCardapio: _getItemDoCardapio,
+        getCategorias: _getCategorias
     };
 });

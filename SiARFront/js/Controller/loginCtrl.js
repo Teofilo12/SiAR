@@ -1,4 +1,4 @@
-angular.module("SiARBack").controller("loginCtrl", function ($scope, $http, funcionarioAPI, $location)
+angular.module("SiAR").controller("loginCtrl", function ($scope, $http, funcionarioAPI, $location)
 {
     $scope.Logar = function(funcionario){
         funcionarioAPI.login(funcionario).success(function (data) {
@@ -10,7 +10,8 @@ angular.module("SiARBack").controller("loginCtrl", function ($scope, $http, func
                 //     alert("Usuário não autorizado!")
                 // }
             }else{
-                alert("Usuário não autorizado / Login ou Senha incorretos!")
+                alert("Usuário não autorizado / Login ou Senha incorretos!");
+                $scope.loginForm.$setPristine();
             }
         })
     }

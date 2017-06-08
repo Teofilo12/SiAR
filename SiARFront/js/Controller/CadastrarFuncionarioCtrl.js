@@ -1,4 +1,4 @@
-angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
+angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
 {
 	$scope.funcionario = {};
 
@@ -30,9 +30,5 @@ angular.module("SiARBack").controller("CadastrarFuncionarioCtrl", function ($sco
 
 		funcionarioAPI.getFuncao().success(function (data) {
 			$scope.funcionarioFuncao = data;
-		});
-
-		funcionarioAPI.getSexo().success(function (data) {
-			$scope.sexoF = data;
 		});
 });
