@@ -55,8 +55,7 @@
         <input type="text" name="dsc_itm_cardapio" ng-model="cardapio.dsc_itm_cardapio" class="form-control" placeholder="Descrição do Item" required id="linha2"/>
         <br><br><br>
         <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="adicionarItemNoCardapio(cardapio)"
-                ng-disabled = "!(cardapio.img_cardapio &&
-                                 cardapio.itm_cardapio &&
+                ng-disabled = "!(cardapio.itm_cardapio &&
                                  cardapio.cod_categoria &&
                                  cardapio.vlr_itm_cardapio &&
                                  cardapio.cod_restaurante &&
