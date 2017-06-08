@@ -1,4 +1,4 @@
-angular.module("SiARBack").factory ("cardapioAPI",function($http, config){
+angular.module("SiAR").factory ("cardapioAPI",function($http, config){
 
     var _postItemNoCardapio = function(cardapio){
         return $http.post(config.baseUrl + "/cardapio/?idt_cardapio=1&itm_cardapio="
