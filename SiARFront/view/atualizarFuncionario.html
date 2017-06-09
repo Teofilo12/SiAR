@@ -42,7 +42,7 @@
 </style>
 <div class="jumbotron">
     <form name="funcionarioForm" class="form-signin">
-        <h2 class="form-signin-heading">Cadastrar Funcionário:</h2>
+        <h2 class="form-signin-heading">Atualizar Funcionário:</h2>
         <br><br>
         <input type="file" name="img_funcionario" ng-model="funcionario.img_funcionario" class="form-control" placeholder="Foto" required id="img"/>
         <input type="text" name="nme_funcionario" ng-model="funcionario.nme_funcionario" class="form-control" placeholder="Nome" required id="linha1" />
@@ -66,8 +66,12 @@
         </select>
         <br><br>
         <input type="pass" name="pwd_funcionario" ng-model="funcionario.pwd_funcionario" class="form-control" placeholder="Senha" required id="linha3"/>
-        <input type="option" name="cod_funcao" ng-model="funcionario.cod_funcao" class="form-control" placeholder="Função" required id="linha3"/>
-        <input type="text" name="cod_restaurante" ng-model="funcionario.cod_restaurante" class="form-control" placeholder="Restaurante" required id="linha3"/>
+        <select class="form-control" ng-model="funcionario.cod_funcao" ng-options="func.idt_funcao as func.dsc_funcao for func in funcionarioFuncao" required id="linha2">
+            <option value="">Função</option>
+        </select>
+        <select class="form-control" ng-model="funcionario.cod_restaurante" ng-options="rest.cnpj_restaurante as rest.nme_restaurante for rest in restauranteF" required id="linha2">
+            <option value="">Restaurante</option>
+        </select>
         <br><br><br>
         <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="updateFuncionario(funcionario)" type="submit" id="button" >Atualizar</button>
     </form>
