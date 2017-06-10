@@ -23,6 +23,7 @@
         </div>
           <a class="btn btn-success" href="#/atualizarFuncionario/{{employee.cpf_funcionario}}">Atualizar Perfil</a>
           <a class="btn btn-danger" ng-click="deleteFuncionario(employee.cpf_funcionario)" href="#">Deletar Perfil</a>
+          <a href="#/CadastrarTurnoFuncionario/{{employee.cpf_funcionario}}">Cadastrar Turno para {{employee.nme_funcionario}}</a>
      </div>
 
      <div class="col-sm-7">
@@ -47,7 +48,9 @@
                </div>
            </div>
                   <h3>Função:</h3>
-                  {{employee.dsc_funcao}}
+                   <div ng-repeat="fun in funcFuncao">
+                       {{fun.dsc_funcao}}
+                   </div>
                   <h3>Telefone:</h3>
                   {{employee.tel_funcionario}}
                   <h3>Celular:</h3>
@@ -58,6 +61,10 @@
                   {{employee.end_funcionario}}
                   <h3>Número:</h3>
                   {{employee.end_nr_funcionario}}
+                   <h3>Estado Civil:</h3>
+                   <div ng-repeat="ec in funcEstCiv">
+                       {{ec.dsc_estado_civil}}
+                   </div>
                   <h3>Bairro:</h3>
                   {{employee.end_bairro_funcionario}}
                   <h3>Cidade:</h3>

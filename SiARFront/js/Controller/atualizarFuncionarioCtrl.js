@@ -51,5 +51,4 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
         });
     };
     $scope.funcionario = ToObject(funcionario.data);
-    console.log(funcionario.data);
 });

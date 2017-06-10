@@ -1,30 +1,41 @@
-angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
+angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, funcionario, $location)
+//diaFunc, turnoFunc,
 {
+    $scope.funcionarioTurno = funcionarioTurno.data;
+    $scope.funcionario = funcionario.data;
+    // $scope.diaFunc = diaFunc.data;
+    // $scope.turnoFunc = turnoFunc.data;
+
 
     funcionarioAPI.getDias().success(function (data) {
         $scope.dias = data;
     });
-
     funcionarioAPI.getTurnos().success(function (data) {
         $scope.turno = data;
     });
-
-    funcionarioAPI.getFuncionarios().success(function (data) {
-        $scope.funcionario = data;
+    funcionarioAPI.getFuncionario().success(function (data) {
+        $scope.funcionarios = data;
     });
 
-    $scope.carregarTurnosFuncionario = function (cod_funcionario) {
-      funcionarioAPI.getTurnosFuncionario(cod_funcionario).success( function (data) {
-          $location.path("/CadastrarTurnosFuncionario/:cod_funcionario");
-          $scope.cadastroTurnosFuncionario = data;
-        }
-    )};
+
+    // var ToObject = function (turnos_funcionario) {
+    //     return {
+    //         cpf_funcionario: funcionario[0].cpf_funcionario,
+    //     };
+    // };
+
+    // $scope.carregarTurnosFuncionario = function (cod_funcionario) {
+    //   funcionarioAPI.getTurnosFuncionario(cod_funcionario).success( function (data) {
+    //       $location.path("/CadastrarTurnosFuncionario/:cod_funcionario");
+    //       $scope.cadastroTurnosFuncionario = data;
+    //     }
+    // )};
 
     $scope.AdicionarTurno = function (turnos_funcionario) {
         $scope.adicionar;
         funcionarioAPI.postTurnosFuncionario(turnos_funcionario).success(function (data) {
             $scope.turnos_funcionario = data;
-            $scope.turnos_funcionario.push({nme_funcionario: $scope.nme_funcionario, dsc_dia: $scope.dsc_dia, dsc_turno: $scope.dsc_turno});
+            $scope.funcionarioTurno.push(turnos_funcionario);
         });
     };
 

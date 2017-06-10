@@ -41,7 +41,10 @@ class FuncaoController
 
         $conn = $db->getConnection();
 //        $query = "INSERT INTO tt_funcao (dsc_funcao) VALUES ('Garçon 2')";
-        $result = $conn->query("SELECT * FROM tt_funcao WHERE " . $crit);
+        $result = $conn->query("SELECT func.nme_funcionario, f.dsc_funcao 
+                                          FROM tt_funcao f, 
+                                               tb_funcionario func
+                                          WHERE func.cod_funcao = f.idt_funcao AND " . $crit);
 //var_dump($result);die;
         //var_dump($result->fetchAll(PDO::FETCH_ASSOC));
         return ($result->fetchAll(PDO::FETCH_ASSOC));
