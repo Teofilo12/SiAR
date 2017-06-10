@@ -10,7 +10,7 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
             idt_cardapio: cardapio[0].idt_cardapio,
             itm_cardapio: cardapio[0].itm_cardapio,
             cod_categoria: cardapio[0].cod_categoria,
-            cod_restaurante: cardapio[0].cod_restaurante,   
+            cod_restaurante: cardapio[0].cod_restaurante,
             vlr_itm_cardapio: cardapio[0].vlr_itm_cardapio,
             img_cardapio: cardapio[0].img_cardapio,
             dsc_itm_cardapio: cardapio[0].dsc_itm_cardapio
@@ -19,12 +19,12 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
     };
 
     $scope.updateCardapio = function(cardapio){
-        $scope.adicionarMenu();
+        $scope.adicionarMenu;
         cardapioAPI.putItemNoCardapio(cardapio).success(function(data){
             delete $scope.cardapio;
             alert("Item Alterado com Sucesso!");
             $location.path("/principal");
-            $scope.funcionarioForm.$setPristine();
+            $scope.cardapioForm.$setPristine();
         }).error(function (data) {
             swal('Oopa!', 'Desculpe, mas não conseguimos atualzar a Task!', 'error')
         });

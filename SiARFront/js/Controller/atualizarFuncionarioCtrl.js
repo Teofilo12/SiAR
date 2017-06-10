@@ -10,6 +10,14 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
         $scope.estadocivil = data;
     });
 
+    funcionarioAPI.getFuncao().success(function (data) {
+        $scope.funcao = data;
+    });
+
+    funcionarioAPI.getRestaurante().success(function (data) {
+        $scope.restaurante = data;
+    });
+
     var ToObject = function (funcionario) {
         return {
             img_funcionario: funcionario[0].img_funcionario,
