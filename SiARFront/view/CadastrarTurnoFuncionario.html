@@ -12,12 +12,18 @@
             <div class="jumbotron">
                 <center><h2>Adicione os turnos de seu funcionário:</h2></center>
                     <hr>
-                <form name="turnosFuncionarioForm" ng-submit="carregarTurnosFuncionario(turnos_funcionario.cod_funcionario)">
+                <form name="turnosFuncionarioForm">
                 <select class="form-control" ng-model="turnos_funcionario.cod_funcionario"
                  ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario"  required>
                     <!--ng-submit="carregarTurnosFuncionario(cod_funcionario)"-->
                     <option value="">Funcionário</option>
                 </select>
+                    <!--<div>-->
+                    <!--<input type="text" ng-model="turnos_funcionario.cod_funcionario" value="{{funcionario.cpf_funcionario}}">-->
+                    <!--</div>-->
+
+                    <!--<td ng-repeat="df in diaFunc">{{df.dsc_dia}}</td>-->
+                    <!--<td ng-repeat="tf in turnoFunc">{{tf.dsc_turno}}</td>-->
                 <br>
                 <div class="row">
                    <div class="col-md-12">
@@ -29,9 +35,11 @@
                            </thead>
                            <tbody>
                            <div>
-                           <tr>
-                               {{cadastroTurnosFuncionario}}
+                           <tr ng-repeat="ft in funcionarioTurno">
+                               <td>{{ft.cod_dia}}</td>
+                               <td>{{ft.cod_turno}}</td>
                            </tr>
+                               <tr>{{turnos_funcionario}}</tr>
                            </div>
                            </tbody>
                        </table>
