@@ -48,25 +48,25 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/restaurante/?");
     };
 
-    var _getFuncEstadoCivil = function (cpf_funcionario) {
-        return $http.get(config.baseUrl + "/estado_civil/?cpf_funcionario=" + cpf_funcionario)
-    };
-
-    var _getFuncRest = function (cpf_funcionario) {
-        return $http.get(config.baseUrl + "/restaurante/?cpf_funcionario=" + cpf_funcionario)
-    };
-
-    var _getFuncFuncao = function (cpf_funcionario) {
-        return $http.get(config.baseUrl + "/funcao/?cpf_funcionario=" + cpf_funcionario)
-    };
-
-    // var _getFuncDia = function (cpf_funcionario) {
-    //     return $http.get(config.baseUrl + "/dia/?cpf_funcionario=" + cpf_funcionario)
+    // var _getFuncEstadoCivil = function (cpf_funcionario) {
+    //     return $http.get(config.baseUrl + "/estado_civil/?cpf_funcionario=" + cpf_funcionario)
     // };
     //
-    // var _getFuncTurno = function (cpf_funcionario) {
-    //     return $http.get(config.baseUrl + "/turno/?cpf_funcionario=" + cpf_funcionario)
+    // var _getFuncRest = function (cpf_funcionario) {
+    //     return $http.get(config.baseUrl + "/restaurante/?cpf_funcionario=" + cpf_funcionario)
     // };
+    //
+    // var _getFuncFuncao = function (cpf_funcionario) {
+    //     return $http.get(config.baseUrl + "/funcao/?cpf_funcionario=" + cpf_funcionario)
+    // };
+
+    var _getFuncDia = function (cpf_funcionario) {
+        return $http.get(config.baseUrl + "/dia/?cpf_funcionario=" + cpf_funcionario)
+    };
+
+    var _getFuncTurno = function (cpf_funcionario) {
+        return $http.get(config.baseUrl + "/turno/?cpf_funcionario=" + cpf_funcionario)
+    };
 
     var _getTurnosFuncionario = function (cpf_funcionario) {
         return $http.get(config.baseUrl + "/turnos_funcionario/?cpf_funcionario=" + cpf_funcionario);
@@ -99,9 +99,9 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         getEstadoCivil: _getEstadoCivil,
         getFuncao: _getFuncao,
         getRestaurante: _getRestaurante,
-        getFuncEstadoCivil: _getFuncEstadoCivil,
-        getFuncRest: _getFuncRest,
-        getFuncFuncao: _getFuncFuncao,
+      //  getFuncEstadoCivil: _getFuncEstadoCivil,
+      //   getFuncRest: _getFuncRest,
+      //   getFuncFuncao: _getFuncFuncao,
         getFuncDia: _getFuncDia,
         getFuncTurno: _getFuncTurno,
         getDias: _getDias,
