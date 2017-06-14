@@ -17,6 +17,13 @@ class DiaController
 
         $result = $conn->query("SELECT * FROM tt_dia WHERE " . $crit);
 
+//        $result = $conn->query("SELECT DISTINCT d.idt_dia, d.dsc_dia
+//                                          FROM tt_dia d,
+//                                               ta_turnos_funcionario funcT,
+//                                               tb_funcionario func
+//                                          WHERE funcT.cod_dia = d.idt_dia AND
+//                                                func.cpf_funcionario = funcT.cod_funcionario AND " . $crit . " ORDER BY d.idt_dia");
+
         return ($result->fetchAll(PDO::FETCH_ASSOC));
 
     }

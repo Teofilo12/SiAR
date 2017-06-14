@@ -53,7 +53,7 @@
         <input type="text" name="end_estado_funcionario" ng-model="funcionario.end_estado_funcionario" class="form-control" placeholder="Estado" required id="linha2"/>
         <input type="text" name="end_cidade_funcionario" ng-model="funcionario.end_cidade_funcionario" class="form-control" placeholder="Cidade" required id="linha2"/>
         <br><br>
-        <input type="text" name="dta_nasc_funcionario" ng-model="funcionario.dta_nasc_funcionario" class="form-control" placeholder="AAAA-MM-DD"  required id="linha2"/><!--pattern="\d{4}\-\d{2}\-\d{2}"-->
+        <input type="date" name="dta_nasc_funcionario" ng-model="funcionario.dta_nasc_funcionario" class="form-control" placeholder="AAAA-MM-DD"  required id="linha2"/><!--pattern="\d{4}\-\d{2}\-\d{2}"-->
         <input type="text" name="cel_funcionario" ng-model="funcionario.cel_funcionario" class="form-control" placeholder="Celular" required id="linha2"/>
         <input type="text" name="end_bairro_funcionario" ng-model="funcionario.end_bairro_funcionario" class="form-control" placeholder="Bairro" required id="linha2"/>
         <input type="text" name="end_nr_funcionario" ng-model="funcionario.end_nr_funcionario" class="form-control" placeholder="Número do Endereço" required id="linha2"/>
@@ -78,7 +78,25 @@
             <option value="">Restaurante</option>
         </select>
         <br><br><br>
-        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="adicionarFuncionario(funcionario)" type="submit" id="button" >Registrar</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarF ng-click="adicionarFuncionario(funcionario)"
+                ng-disabled = "!(funcionario.nme_funcionario &&
+                                 funcionario.end_funcionario &&
+                                 funcionario.cpf_funcionario &&
+                                 funcionario.rg_funcionario &&
+                                 funcionario.end_estado_funcionario &&
+                                 funcionario.end_cidade_funcionario &&
+                                 funcionario.dta_nasc_funcionario &&
+                                 funcionario.cel_funcionario &&
+                                 funcionario.end_bairro_funcionario &&
+                                 funcionario.end_nr_funcionario &&
+                                 funcionario.tel_funcionario &&
+                                 funcionario.sex_funcionario &&
+                                 funcionario.cep_funcionario &&
+                                 funcionario.cod_estado_civil &&
+                                 funcionario.pwd_funcionario &&
+                                 funcionario.cod_funcao &&
+                                 funcionario.cod_restaurante)"
+                type="submit" id="button" >Registrar</button>
     </form>
 
 </div>

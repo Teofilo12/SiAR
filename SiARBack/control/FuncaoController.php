@@ -40,12 +40,10 @@ class FuncaoController
         $db = new DBConnector("localhost", "bd_siar", "mysql", "", "root", "");
 
         $conn = $db->getConnection();
-//        $query = "INSERT INTO tt_funcao (dsc_funcao) VALUES ('Garçon 2')";
+
         $result = $conn->query("SELECT * FROM tt_funcao WHERE " . $crit);
-//var_dump($result);die;
-        //var_dump($result->fetchAll(PDO::FETCH_ASSOC));
+
         return ($result->fetchAll(PDO::FETCH_ASSOC));
-        //return ($result);
 
     }
 
