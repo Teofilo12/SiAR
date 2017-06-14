@@ -18,6 +18,15 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
         };
     };
 
+
+    $scope.deleteCardapio = function (idt_cardapio) {
+        $scope.adicionarMenu;
+        cardapioAPI.deleteItemCardapio(idt_cardapio).success(function (data) {
+            alert("Item excluído com sucesso!");
+            $location.path("/principal");
+        });
+    };
+  
     $scope.updateCardapio = function(cardapio){
         $scope.adicionarMenu;
         cardapioAPI.putItemNoCardapio(cardapio).success(function(data){

@@ -48,6 +48,11 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/restaurante/?");
     };
 
+
+    var _deleteFuncTurn = function (idt_turnos_funcionario) {
+        return $http.delete(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario=" + idt_turnos_funcionario);
+    };
+  
     // var _getFuncEstadoCivil = function (cpf_funcionario) {
     //     return $http.get(config.baseUrl + "/estado_civil/?cpf_funcionario=" + cpf_funcionario)
     // };
@@ -96,6 +101,7 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         postFuncionario: _postFuncionario,
         putFuncionario: _putFuncionario,
         deleteCadastro: _deleteCadastro,
+        deleteFuncTurn: _deleteFuncTurn,
         getEstadoCivil: _getEstadoCivil,
         getFuncao: _getFuncao,
         getRestaurante: _getRestaurante,
