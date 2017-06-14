@@ -3,6 +3,11 @@
     .selecionado{
         background-color: #bbbfce;
     }
+
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 
 
@@ -12,27 +17,34 @@
             <div class="jumbotron">
                 <center><h2>Adicione os turnos de seu funcionário:</h2></center>
                     <hr>
-                <form name="turnosFuncionarioForm" ng-submit="carregarTurnosFuncionario(turnos_funcionario.cod_funcionario)">
+                <form name="turnosFuncionarioForm">
                 <select class="form-control" ng-model="turnos_funcionario.cod_funcionario"
-                 ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario"  required>
+                 ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario" required>
                     <!--ng-submit="carregarTurnosFuncionario(cod_funcionario)"-->
                     <option value="">Funcionário</option>
                 </select>
+                    <!--<div>-->
+                    <!--<input type="text" ng-model="turnos_funcionario.cod_funcionario" value="{{funcionario.cpf_funcionario}}">-->
+                    <!--</div>-->
                 <br>
                 <div class="row">
                    <div class="col-md-12">
                        <table class="table table-striped">
                            <thead>
                            <tr>
-                               <td>Funcionario</td>
+                               <td>Dia</td>
+                               <td>Turno</td>
+
                            </tr>
                            </thead>
                            <tbody>
                            <div>
-                           <tr>
-                               {{cadastroTurnosFuncionario}}
+                           <tr ng-repeat="ft in funcionarioTurno">
+                               <td>{{ft.dsc_dia}}</td>
+                               <td>{{ft.dsc_turno}}</td>
+                               <!--<td>{{ft.cod_dia}}</td>-->
+                               <!--<td>{{ft.cod_turno}}</td>-->
                            </tr>
-                           </div>
                            </tbody>
                        </table>
                    </div>

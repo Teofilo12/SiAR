@@ -1,6 +1,9 @@
     angular.module("SiAR").controller("funcionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI)
 {
 	$scope.funcionario = funcionario.data;
+	// $scope.funcEstCiv = funcEstCiv.data;
+	// $scope.funcRest = funcRest.data;
+	// $scope.funcFuncao = funcFuncao.data;
 
     // $scope.updateFuncionario = function (cpf_funcionario) {
 	 //    funcionarioAPI.atualizaFuncionario(cpf_funcionario).success(function (data) {
@@ -21,8 +24,8 @@
     //         })
     // }
 
-    $scope.deleteFuncionario = function (cpf_funcionario) {
-        funcionarioAPI.deleteCadastro(cpf_funcionario).success(function (data) {
+    $scope.deleteFuncionario = function (cod_funcionario) {
+        funcionarioAPI.deleteCadastro(cod_funcionario).success(function (data) {
             alert("Funcionário excluído com sucesso!");
         });
     };

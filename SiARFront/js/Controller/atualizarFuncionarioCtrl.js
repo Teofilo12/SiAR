@@ -9,6 +9,20 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
     funcionarioAPI.getEstadoCivil().success(function (data) {
         $scope.estadocivil = data;
     });
+    funcionarioAPI.getRestaurante().success(function (data) {
+        $scope.restauranteF = data;
+    });
+    funcionarioAPI.getFuncao().success(function (data) {
+        $scope.funcionarioFuncao = data;
+    });
+
+    funcionarioAPI.getFuncao().success(function (data) {
+        $scope.funcao = data;
+    });
+
+    funcionarioAPI.getRestaurante().success(function (data) {
+        $scope.restaurante = data;
+    });
 
     var ToObject = function (funcionario) {
         return {
@@ -42,8 +56,6 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
             alert("Funcionário Alterado com Sucesso!");
             $location.path("/principal");
             $scope.funcionarioForm.$setPristine();
-        }).error(function (data) {
-            swal('Oopa!', 'Desculpe, mas não conseguimos atualzar a Task!', 'error')
         });
     };
     $scope.funcionario = ToObject(funcionario.data);

@@ -39,6 +39,15 @@ angular.module("SiAR").config(function($routeProvider){
             funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
+            // funcEstCiv: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
+            // },
+            // funcRest: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncRest($route.current.params.cpf_funcionario);
+            // },
+            // funcFuncao: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncFuncao($route.current.params.cpf_funcionario);
+            // },
         }
     });
 
@@ -57,44 +66,58 @@ angular.module("SiAR").config(function($routeProvider){
         }
 
     });
+    //
+    // $routeProvider.when("/CadastrarTurnoFuncionario",{
+    //     templateUrl: "view/CadastrarTurnoFuncionario.html",
+    //     controller: "CadastrarTurnoFuncionarioCtrl",
+    // });
 
-    $routeProvider.when("/CadastrarTurnoFuncionario",{
-        templateUrl: "view/CadastrarTurnoFuncionario.html",
-        controller: "CadastrarTurnoFuncionarioCtrl",
-        // resolve: {
-        //     turnos_funcionario: function(funcionarioAPI, $route){
-        //         return funcionarioAPI.getTurnosFuncionario($route.current.params.cpf_funcionario);
-        //     },
-        //     turnos_funcionario: function(funcionarioAPI, $route){
-        //         return funcionarioAPI.getTurnos($route.current.params.idt_turno);
-        //     }
-        // }
-    });
-    $routeProvider.when("/CadastrarTurnoFuncionario/:cod_funcionario", {
+    $routeProvider.when("/CadastrarTurnoFuncionario/:cpf_funcionario", {
         templateUrl: "view/CadastrarTurnoFuncionario.html",
         controller: "CadastrarTurnoFuncionarioCtrl",
         resolve: {
-            cadastroTurnosFuncionario: function (funcionarioAPI, $route) {
-               return funcionarioAPI.getTurnosFuncionario($route.current.params.cod_funcionario);
+            funcionarioTurno: function (funcionarioAPI, $route) {
+               return funcionarioAPI.getTurnosFuncionario($route.current.params.cpf_funcionario);
+            },
+            funcionario: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncionario($route.current.params.cpf_funcionario);
+            },
+            diaFunc: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncDia($route.current.params.cpf_funcionario);
+            },
+            turnoFunc: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncTurno($route.current.params.cpf_funcionario);
             }
         }
     });
 
-    $routeProvider.when("/funcionario/:cod_funcao",{
-        templateUrl: "view/funcionario.html",
-        controller: "funcionarioCtrl",
-        resolve: {
-            funcao: function (listFuncionariosAPI) {
-                return listFuncionariosAPI.getFuncoes();
-            },
-        }
-
-    });
+    // $routeProvider.when("/funcionario/:cod_funcao",{
+    //     templateUrl: "view/funcionario.html",
+    //     controller: "funcionarioCtrl",
+    //     resolve: {
+    //         funcao: function (listFuncionariosAPI) {
+    //             return listFuncionariosAPI.getFuncoes();
+    //         },
+    //     }
+    //
+    // });
 
     $routeProvider.when("/CadastrarCardapio",{
         templateUrl: "view/CadastrarCardapio.html",
         controller: "CadastrarCardapioCtrl"
     });
+
+    $routeProvider.when("/atualizarCardapio/:idt_cardapio",{
+        templateUrl: "view/atualizarCardapio.html",
+        controller: "atualizarCardapioCtrl",
+        resolve:{
+            cardapio: function(cardapioAPI, $route){
+                return cardapioAPI.getItemDoCardapio($route.current.params.idt_cardapio);
+            }
+        }
+
+    });
+
 
     $routeProvider.when("/cardapio",{
         templateUrl: "view/cardapio.html",

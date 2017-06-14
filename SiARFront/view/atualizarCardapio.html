@@ -42,7 +42,7 @@
 </style>
 <div class="jumbotron">
     <form name="cardapioForm" class="form-signin">
-        <h2 class="form-signin-heading">Cadastrar Item no Cardápio:</h2>
+        <h2 class="form-signin-heading">Atualizar Item no Cardápio:</h2>
         <br><br>
         <input type="file" name="img_cardapio" ng-model="cardapio.img_cardapio" class="form-control" placeholder="Foto" required id="img"/>
         <input type="text" name="itm_cardapio" ng-model="cardapio.itm_cardapio" class="form-control" placeholder="Nome do Item no Cardápio" required id="linha1" />
@@ -54,13 +54,8 @@
         <input type="text" name="cod_restaurante" ng-model="cardapio.cod_restaurante" class="form-control" placeholder="Restaurante" required id="linha2"/>
         <input type="text" name="dsc_itm_cardapio" ng-model="cardapio.dsc_itm_cardapio" class="form-control" placeholder="Descrição do Item" required id="linha2"/>
         <br><br><br>
-        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="adicionarItemNoCardapio(cardapio)"
-                ng-disabled = "!(cardapio.itm_cardapio &&
-                                 cardapio.cod_categoria &&
-                                 cardapio.vlr_itm_cardapio &&
-                                 cardapio.cod_restaurante &&
-                                 cardapio.dsc_itm_cardapio)"
-                type="submit" id="button">Registrar</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="updateCardapio(cardapio)" type="submit" id="button" >Atualizar</button>
+        <button class="btn btn-lg btn-danger btn-block" ng-click="deleteCardapio(cardapio.idt_cardapio)" type="submit" id="button" >Deletar</button>
     </form>
 
 </div>

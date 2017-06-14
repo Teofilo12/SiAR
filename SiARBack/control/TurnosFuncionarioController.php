@@ -42,11 +42,14 @@ class TurnosFuncionarioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT func.nme_funcionario, d.dsc_dia, t.dsc_turno 
-                                          FROM ta_turnos_funcionario tf, tb_funcionario func, tt_dia d, tt_turno t 
-                                          WHERE tf.cod_funcionario = func.cpf_funcionario 
-                                          AND tf.cod_dia = d.idt_dia
-                                          AND tf.cod_turno = t.idt_turno AND ".$crit);
+        $result = $conn->query("SELECT tf.idt_turnos_funcionario, tf.cod_funcionario, func.nme_funcionario, 
+                                                 tf.cod_dia, d.dsc_dia, tf.cod_turno, t.dsc_turno
+                                          FROM ta_turnos_funcionario tf,
+                                               tb_funcionario func,
+                                               tt_dia d,
+                                               tt_turno t 
+                                          WHERE tf.cod_funcionario = func.cpf_funcionario AND 
+                                                tf.cod_dia = d.idt_dia AND tf.cod_turno = t.idt_turno AND ".$crit);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -101,7 +104,7 @@ class TurnosFuncionarioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->prepare("DELETE FROM ta_turnos_funcionario WHERE idt_turnos_funcionario= ?");
+        $result = $conn->prepare("DELETE FROM ta_turnos_funcionario WHERE idt_turnos_funcionario = ?");
 
         $result->bindParam(1, $params['idt_turnos_funcionario']);
 

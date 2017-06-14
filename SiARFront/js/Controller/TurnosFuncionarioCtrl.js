@@ -2,9 +2,9 @@ angular.module("SiAR").controller("TurnosFuncionarioCtrl", function ($scope, $ht
 {
     $scope.turnos_funcionario = turnos_funcionario.data;
 
-
-       funcionarioAPI.getTurnos().success(function (data) {
-            $scope.turno = data;
-        });
+       //
+       // funcionarioAPI.getTurnos().success(function (data) {
+       //      $scope.turno = data;
+       //  });
 
 });
