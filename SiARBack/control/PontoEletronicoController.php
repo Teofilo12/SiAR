@@ -42,7 +42,7 @@ class PontoEletronicoController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
+        $result = $conn->query("SELECT pe.cod_funcionario, func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
                                           FROM tb_ponto_eletronico AS pe, tb_funcionario AS func
                                           WHERE func.cpf_funcionario = pe.cod_funcionario AND ".$crit);
 

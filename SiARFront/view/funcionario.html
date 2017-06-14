@@ -46,7 +46,7 @@
            <div class="col-sm-3">
                <div class="panel-body">
                    <h3>Data de Nascimento:</h3>
-                   {{employee.dta_nasc_funcionario}}
+                   {{employee.dta_nasc_funcionario | date:'dd/MM/yyyy'}}
                </div>
            </div>
                   <h3>Função:</h3>
@@ -70,7 +70,7 @@
                   <h3>Estado:</h3>
                   {{employee.end_estado_funcionario}}
                   <h3>Sexo:</h3>
-                  {{employee.sex_funcionario}}
+                  {{employee.sex_funcionario === '1' ? "Feminino" : "Masculino"}}
                 <!--  <h3>{{employee.cod_estado_civil}}</h3> -->
      </div>
    </div>    

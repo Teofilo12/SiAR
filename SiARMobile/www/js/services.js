@@ -34,7 +34,7 @@ angular.module('SiAR.services', [])
         var _postComPontoEntrada = function(ponto_eletronico){
             return $http.post("http://localhost/SiARBack/ponto_eletronico/?idt_ponto_eletronico=1&cod_funcionario="
                 + ponto_eletronico.cod_funcionario + "&ponto_hr_entrada="
-                + ponto_eletronico.ponto_hr_entrada)
+                + ponto_eletronico.ponto_hr_entrada + "&ponto_hr_saida=" + ponto_eletronico.ponto_hr_saida)
         };
 
         var _putComPontoSaida = function(ponto_eletronico){
@@ -55,9 +55,9 @@ angular.module('SiAR.services', [])
         return $http.get("http://localhost/SiARBack/funcionario/?");
     };
 
-        var _login = function(funcionario){
-            return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
-                "&cod_funcao=1&pwd_funcionario=" + funcionario.pwd_funcionario);
+        var _login = function(ponto_eletronico){
+            return $http.get("http://localhost/SiARBack/funcionario/?cpf_funcionario=" + ponto_eletronico.cpf_funcionario +
+                "&cod_funcao=1&pwd_funcionario=" + ponto_eletronico.pwd_funcionario);
         };
         return {
             getFuncionarios: _getFuncionarios,

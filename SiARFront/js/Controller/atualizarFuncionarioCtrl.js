@@ -1,4 +1,4 @@
-angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI, $location)
+angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, $http, $filter, funcionario, funcionarioAPI, $location)
 {
     // var formatDate = function (date) {
     //     var day = date.getDate();
@@ -33,8 +33,8 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
             rg_funcionario: funcionario[0].rg_funcionario,
             end_estado_funcionario: funcionario[0].end_estado_funcionario,
             end_cidade_funcionario: funcionario[0].end_cidade_funcionario,
-       //     dta_nasc_funcionario: new Date(funcionario[0].dta_nasc_funcionario),
-            dta_nasc_funcionario: funcionario[0].dta_nasc_funcionario,
+            dta_nasc_funcionario: $filter('date')(new Date(funcionario[0].dta_nasc_funcionario), 'dd/MM/yyyy'),
+            // dta_nasc_funcionario: funcionario[0].dta_nasc_funcionario,
             cel_funcionario: funcionario[0].cel_funcionario,
             end_bairro_funcionario: funcionario[0].end_bairro_funcionario,
             end_nr_funcionario: funcionario[0].end_nr_funcionario,
@@ -50,11 +50,11 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
 
     $scope.updateFuncionario = function(funcionario){
         $scope.adicionarF;
-       // funcionario.dta_nasc_funcionario = formatDate(funcionario.dta_nasc_funcionario);
+       funcionario.dta_nasc_funcionario = $filter('date')(new Date(funcionario.dta_nasc_funcionario), 'yyyy-MM-dd');
         funcionarioAPI.putFuncionario(funcionario).success(function(data){
             delete $scope.funcionario;
             alert("Funcionário Alterado com Sucesso!");
-            $location.path("/principal");
+            $location.path("/funcionario:cpf_funcionario");
             $scope.funcionarioForm.$setPristine();
         });
     };
