@@ -1,0 +1,31 @@
+<style>
+	.jumbotron{
+		width: 800px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.center{
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+
+<div class="tabs-striped  tabs-background-positive tabs-color-light">
+	<div class="tabs">
+		<a class="tab-item " href="#/BaterPonto"><i class="icon ion-unlocked"></i>Bater Ponto</a>
+		<a class="tab-item active" href="#/cardapio"> <i class="icon ion-person"></i>Cardápio</a>
+	</div>
+</div>
+
+<ion-view view-title="Cardapio" class="loginBg" hide-nav-bar="true" >
+	<ion-content class="padding">
+
+		<div class="jumbotron" ng-repeat="carda in cardapio">
+				<div class="d-flex w-100 justify-content-between">
+					<h2 class="mb-1">{{carda.itm_cardapio}}</h2>
+					<small>{{carda.dsc_itm_cardapio}}</small>
+				</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Network/.idea/Network.iml" filepath="$PROJECT_DIR$/../Network/.idea/Network.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Network - Cliente/.idea/Projeto.iml" filepath="$PROJECT_DIR$/../Network - Cliente/.idea/Projeto.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SiARBack.iml" filepath="$PROJECT_DIR$/.idea/SiARBack.iml" />
       <module fileurl="file://$PROJECT_DIR$/../SiARFront/.idea/SiARFront.iml" filepath="$PROJECT_DIR$/../SiARFront/.idea/SiARFront.iml" />
     </modules>
