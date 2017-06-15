@@ -1,7 +1,7 @@
 <?php
 
-include_once "control/Request.php";
-include_once "control/turno.php";
+include_once "model/Request.php";
+include_once "model/turno.php";
 include_once "database/DBConnector.php";
 
 class TurnoController
@@ -16,6 +16,13 @@ class TurnoController
         $conn = $db->getConnection();
 
         $result = $conn->query("SELECT * FROM tt_turno WHERE " . $crit);
+
+//        $result = $conn->query("SELECT DISTINCT t.idt_turno, t.dsc_turno
+//                                          FROM tt_turno t,
+//                                               ta_turnos_funcionario funcT,
+//                                               tb_funcionario func
+//                                          WHERE funcT.cod_funcionario = func.cpf_funcionario AND
+//                                                funcT.cod_turno = t.idt_turno AND " . $crit . " ORDER BY t.idt_turno");
 
         return ($result->fetchAll(PDO::FETCH_ASSOC));
 

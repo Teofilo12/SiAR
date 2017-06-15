@@ -11,7 +11,9 @@ class RestauranteController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM tb_restaurante WHERE " . $crit);
+        $result = $conn->query("SELECT func.nme_funcionario, rest.nme_restaurante 
+                                          FROM tb_restaurante rest, tb_funcionario func
+                                          WHERE func.cod_restaurante = rest.cnpj_restaurante AND " . $crit);
 
         return ($result->fetchAll(PDO::FETCH_ASSOC));
 
@@ -21,7 +23,7 @@ class RestauranteController
     {
         $criteria = "";
         foreach ($params as $key => $value) {
-            $criteria = $criteria . $key . " LIKE '%" . $value . "%' OR ";
+            $criteria = $criteria . $key . " LIKE '%" . $value . "%' ";
         }
 
         return $criteria;

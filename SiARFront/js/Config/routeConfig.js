@@ -1,8 +1,12 @@
-angular.module("SiARBack").config(function($routeProvider){
-	$routeProvider.when("/principal",{
-		templateUrl: "view/principal.html",
-		controller: "principalCtrl"
+angular.module("SiAR").config(function($routeProvider){
+	$routeProvider.when("/login",{
+		templateUrl: "view/login.html",
+		controller: "loginCtrl"
 	});
+    $routeProvider.when("/principal",{
+        templateUrl: "view/principal.html",
+        controller: "principalCtrl"
+    });
 
 	$routeProvider.when("/listFuncionarios",{
 		templateUrl: "view/listFuncionarios.html",
@@ -13,14 +17,19 @@ angular.module("SiARBack").config(function($routeProvider){
             }
         }
 	});
-	$routeProvider.when("/pontoEletronico",{
-        templateUrl: "view/pontoEletronico.html",
-        controller: "pontoEletronicoCtrl",
+	$routeProvider.when("/pontosBatidos",{
+        templateUrl: "view/pontosBatidos.html",
+        controller: "pontosBatidosCtrl",
         resolve: {
             ponto_eletronico: function (pontoEletronicoAPI) {
                 return pontoEletronicoAPI.getPontosBatidos();
             }
         }
+    });
+
+    $routeProvider.when("/CadastrarPontoEletronicoManual",{
+        templateUrl: "view/CadastrarPontoEletronicoManual.html",
+        controller: "CadastrarPontoEletronicoManualCtrl"
     });
 
     $routeProvider.when("/funcionario/:cpf_funcionario",{
@@ -29,6 +38,15 @@ angular.module("SiARBack").config(function($routeProvider){
         resolve: {
             funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
+            },
+            funcEstCiv: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
+            },
+            funcRest: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncRest($route.current.params.cpf_funcionario);
+            },
+            funcFuncao: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncFuncao($route.current.params.cpf_funcionario);
             },
         }
     });
@@ -48,22 +66,55 @@ angular.module("SiARBack").config(function($routeProvider){
         }
 
     });
+    //
+    // $routeProvider.when("/CadastrarTurnoFuncionario",{
+    //     templateUrl: "view/CadastrarTurnoFuncionario.html",
+    //     controller: "CadastrarTurnoFuncionarioCtrl",
+    // });
 
-    $routeProvider.when("/funcionario/:cod_funcao",{
-        templateUrl: "view/funcionario.html",
-        controller: "funcionarioCtrl",
+    $routeProvider.when("/CadastrarTurnoFuncionario/:cpf_funcionario", {
+        templateUrl: "view/CadastrarTurnoFuncionario.html",
+        controller: "CadastrarTurnoFuncionarioCtrl",
         resolve: {
-            funcao: function (listFuncionariosAPI) {
-                return listFuncionariosAPI.getFuncoes();
+            funcionarioTurno: function (funcionarioAPI, $route) {
+               return funcionarioAPI.getTurnosFuncionario($route.current.params.cpf_funcionario);
             },
+            funcionario: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncionario($route.current.params.cpf_funcionario);
+            },
+            // turnoFunc: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncTurno($route.current.params.cpf_funcionario);
+            // }
         }
-
     });
+
+    // $routeProvider.when("/funcionario/:cod_funcao",{
+    //     templateUrl: "view/funcionario.html",
+    //     controller: "funcionarioCtrl",
+    //     resolve: {
+    //         funcao: function (listFuncionariosAPI) {
+    //             return listFuncionariosAPI.getFuncoes();
+    //         },
+    //     }
+    //
+    // });
 
     $routeProvider.when("/CadastrarCardapio",{
         templateUrl: "view/CadastrarCardapio.html",
         controller: "CadastrarCardapioCtrl"
     });
+
+    $routeProvider.when("/atualizarCardapio/:idt_cardapio",{
+        templateUrl: "view/atualizarCardapio.html",
+        controller: "atualizarCardapioCtrl",
+        resolve:{
+            cardapio: function(cardapioAPI, $route){
+                return cardapioAPI.getItemDoCardapio($route.current.params.idt_cardapio);
+            }
+        }
+
+    });
+
 
     $routeProvider.when("/cardapio",{
         templateUrl: "view/cardapio.html",
@@ -76,5 +127,5 @@ angular.module("SiARBack").config(function($routeProvider){
 
     });
 
-    $routeProvider.otherwise({redirectTo:"/principal"})
+    $routeProvider.otherwise({redirectTo:"/login"})
 });

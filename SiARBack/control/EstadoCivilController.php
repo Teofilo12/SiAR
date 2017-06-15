@@ -16,7 +16,9 @@ class EstadoCivilController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM tt_estado_civil WHERE " . $crit);
+        $result = $conn->query("SELECT func.nme_funcionario, ec.dsc_estado_civil
+                                          FROM tt_estado_civil ec, tb_funcionario func
+                                          where func.cod_estado_civil= ec.idt_estado_civil AND " . $crit);
 
         return ($result->fetchAll(PDO::FETCH_ASSOC));
 
