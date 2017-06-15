@@ -1,4 +1,4 @@
-angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, $http, funcionarioAPI, $location)
+angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, $filter, $http, funcionarioAPI, $location)
 {
 	$scope.funcionario = {};
 
@@ -9,9 +9,10 @@ angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, 
 	// 	return year + "-" + month + "-" + day;
 	// }
 
+
 	$scope.adicionarFuncionario = function(funcionario){
 		$scope.adicionarF;
-       // funcionario.dta_nasc_funcionario = formatDate(funcionario.dta_nasc_funcionario);
+       funcionario.dta_nasc_funcionario = $filter('date')(new Date(funcionario.dta_nasc_funcionario), 'yyyy-MM-dd');
         funcionarioAPI.postFuncionario(funcionario).success(function(data){
 			delete $scope.funcionario;
 			alert("Funcionário Cadastrado com Sucesso!");

@@ -25,11 +25,17 @@ angular.module("SiAR").factory ("cardapioAPI",function($http, config){
         return $http.get(config.baseUrl + "/categoria/?");
     };
 
+    var _deleteItemCardapio = function (idt_cardapio) {
+        return $http.delete(config.baseUrl + "/cardapio/?idt_cardapio=" + idt_cardapio);
+    };
+
+
     return {
         postItemNoCardapio: _postItemNoCardapio,
         putItemNoCardapio: _putItemNoCardapio,
         getItensDoCardapio: _getItensDoCardapio,
         getItemDoCardapio: _getItemDoCardapio,
+        deleteItemCardapio: _deleteItemCardapio,
         getCategorias: _getCategorias
     };
 });

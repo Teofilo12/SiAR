@@ -39,15 +39,15 @@ angular.module("SiAR").config(function($routeProvider){
             funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
-            funcEstCiv: function (funcionarioAPI, $route) {
-                return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
-            },
-            funcRest: function (funcionarioAPI, $route) {
-                return funcionarioAPI.getFuncRest($route.current.params.cpf_funcionario);
-            },
-            funcFuncao: function (funcionarioAPI, $route) {
-                return funcionarioAPI.getFuncFuncao($route.current.params.cpf_funcionario);
-            },
+            // funcEstCiv: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
+            // },
+            // funcRest: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncRest($route.current.params.cpf_funcionario);
+            // },
+            // funcFuncao: function (funcionarioAPI, $route) {
+            //     return funcionarioAPI.getFuncFuncao($route.current.params.cpf_funcionario);
+            // },
         }
     });
 
@@ -82,9 +82,12 @@ angular.module("SiAR").config(function($routeProvider){
             funcionario: function (funcionarioAPI, $route) {
                 return funcionarioAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
-            // turnoFunc: function (funcionarioAPI, $route) {
-            //     return funcionarioAPI.getFuncTurno($route.current.params.cpf_funcionario);
-            // }
+            diaFunc: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncDia($route.current.params.cpf_funcionario);
+            },
+            turnoFunc: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncTurno($route.current.params.cpf_funcionario);
+            }
         }
     });
 
