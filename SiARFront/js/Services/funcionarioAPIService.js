@@ -91,6 +91,12 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
             turnos_funcionario.cod_dia);
     };
 
+    var _putTurnosFuncionario = function (turnos_funcionario) {
+        return $http.put(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario"+ turnos_funcionario.idt_turnos_funcionario+"&cod_funcionario=" +
+            turnos_funcionario.cod_funcionario + "&cod_turno=" + turnos_funcionario.cod_turno + "&cod_dia=" +
+            turnos_funcionario.cod_dia);
+    };
+
     var _login = function(funcionario){
         return $http.get(config.baseUrl + "/funcionario/?cpf_funcionario=" + funcionario.cpf_funcionario +
                                                                "&cod_funcao=1&pwd_funcionario=" + funcionario.pwd_funcionario);
@@ -114,6 +120,7 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         getTurnos: _getTurnos,
         getTurnosFuncionario: _getTurnosFuncionario,
         postTurnosFuncionario: _postTurnosFuncionario,
+        putTurnosFuncionario: _putTurnosFuncionario,
         login: _login
 	};
 });
