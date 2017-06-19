@@ -15,17 +15,12 @@
     margin-left: auto;
     margin-right: auto;
   }
-    #linha2{
-        width:70%;
-        margin-left:auto;
-        margin-right: auto;
-    }
 </style>
 <div>   
   <div class="jumbotron">
     <div class="row content">
       <div class="col-md-6">
-        <h2 >Lista de Funcionários:</h2>
+        <h2>Lista de Funcionários:</h2>
       </div>
       <div class="col-md-6">
         <form class="navbar-form navbar-right" role="search">
@@ -40,17 +35,9 @@
         </form>
       </div>
     </div>
-      <div>
-          <h4>Selecione a funcao para filtrar</h4>
-          <select class="form-control" ng-model="funcao.cod_funcao" ng-options="func.idt_funcao as func.dsc_funcao for func in funcionarioFuncao" required id="linha2">
-              <option value="">Função / Funcionarios</option>
-          </select>
-          <br>
-      </div>
           <div class="list-group">
-              <div ng-repeat="listfunc in listFuncionarios | filter:funcao" id="linha2">
+              <div ng-repeat="listfunc in listFuncionarios | filter:test">
                   <a href="#/funcionario/{{listfunc.cpf_funcionario}}" class="list-group-item">{{listfunc.nme_funcionario}}</a>
-                  <h6></h6>
               </div>
           </div>
  </div>

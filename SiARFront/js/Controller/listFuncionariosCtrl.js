@@ -6,9 +6,6 @@ angular.module("SiAR").controller("listFuncionariosCtrl", function ($scope, $htt
             $scope.listFuncionarios = data;
         });
     };
-    listFuncionariosAPI.getFuncao().success(function (data) {
-        $scope.funcionarioFuncao = data;
-    });
     // var carregarListFuncionariosPorFuncao = function() {
     //     listFuncionariosAPI.getFuncoes().success(function (data) {
     //         $scope.listFuncionariosPorFuncao = data;
