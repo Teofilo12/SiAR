@@ -42,7 +42,7 @@ class PontoEletronicoController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT pe.cod_funcionario, func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
+        $result = $conn->query("SELECT pe.idt_ponto_eletronico, pe.cod_funcionario, func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
                                           FROM tb_ponto_eletronico AS pe, tb_funcionario AS func
                                           WHERE func.cpf_funcionario = pe.cod_funcionario AND ".$crit);
 
@@ -77,9 +77,16 @@ class PontoEletronicoController
 
     private function generateUpdateQuery($params)
     {
-        $crit = $this->generateUpdateCriteria($params);
 
-        return "UPDATE tb_ponto_eletronico SET " . $crit . " WHERE idt_ponto_eletronico = '" . $params["idt_ponto_eletronico"] . "'";
+        var_dump($params);
+//        $crit = $this->generateUpdateCriteria($params);
+  $sql =  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
+        " WHERE cod_funcionario = '" . $params["cod_funcionario"] . "' AND   ponto_hr_entrada LIKE ". " '" .$params["ponto_hr_entrada"]."%'" ;
+
+  var_dump($sql);
+
+//        return "UPDATE tb_ponto_eletronico SET " . $crit . " WHERE idt_ponto_eletronico = '" . $params["idt_ponto_eletronico"] . "'";
+        return $sql;
     }
 
     private function generateUpdateCriteria($params)
