@@ -29,7 +29,7 @@ angular.module('SiAR.services', [])
 })
 
 
-.factory ("pontoEletronicoAPI",function($http){
+.factory ("pontoEletronicoAPI",function($http,$filter){
 
         var _postComPontoEntrada = function(ponto_eletronico){
             return $http.post("http://localhost/SiARBack/ponto_eletronico/?idt_ponto_eletronico=1&cod_funcionario="
@@ -37,13 +37,22 @@ angular.module('SiAR.services', [])
                 + ponto_eletronico.ponto_hr_entrada + "&ponto_hr_saida=" + ponto_eletronico.ponto_hr_saida)
         };
 
+
+    diaBatido = $filter('date')(new Date(), 'yyyy-MM-dd');
+
+        var _getPontoEntradaDoDia = function (ponto_eletronico) {
+              return $http.get("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario=" + ponto_eletronico.cod_funcionario
+                  + "&ponto_hr_entrada=" + diaBatido);
+        };
+
         var _putComPontoSaida = function(ponto_eletronico){
-            return $http.put("http://localhost/SiARBack/ponto_eletronico/?idt_ponto_eletronico="
-                + ponto_eletronico.idt_ponto_eletronico + "&ponto_hr_saida="
+            return $http.put("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario="
+                + ponto_eletronico.cod_funcionario + "&ponto_hr_entrada=" + diaBatido + "&ponto_hr_saida="
                 + ponto_eletronico.ponto_hr_saida)
         };
 
         return {
+            getPontoEntradaDoDia: _getPontoEntradaDoDia,
             postComPontoEntrada: _postComPontoEntrada,
             putComPontoSaida: _putComPontoSaida
         };
