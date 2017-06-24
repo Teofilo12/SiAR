@@ -46,7 +46,7 @@ angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($sc
         });
     };
 
-    $scope.deleteTurno = function (idt_turnos_funcionario) {
+    $scope.DeletarTurno = function (idt_turnos_funcionario) {
         funcionarioAPI.deleteFuncTurn(idt_turnos_funcionario).success(function (data) {
             alert(idt_turnos_funcionario);
             // console.log('Chegou aqui!');

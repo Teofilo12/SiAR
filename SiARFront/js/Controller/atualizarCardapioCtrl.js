@@ -1,5 +1,6 @@
 angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $http, cardapio, cardapioAPI, $location)
 {
+    $scope.cardapio = cardapio.data;
 
     cardapioAPI.getCategorias().success(function (data) {
         $scope.categoria = data;
@@ -19,11 +20,12 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
     };
 
 
-    $scope.deleteCardapio = function (idt_cardapio) {
-        $scope.adicionarMenu;
-        cardapioAPI.deleteItemCardapio(idt_cardapio).success(function (data) {
-            alert("Item excluído com sucesso!");
-            $location.path("/principal");
+    $scope.DeletarCardapio = function (cardapio) {
+        $scope.deletarMenu;
+        cardapioAPI.deleteItemCardapio(cardapio).success(function (data) {
+           //console.log(cardapio);
+           alert("Item excluído com sucesso!");
+            $location.path("/cardapio");
         });
     };
   
@@ -32,7 +34,7 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
         cardapioAPI.putItemNoCardapio(cardapio).success(function(data){
             delete $scope.cardapio;
             alert("Item Alterado com Sucesso!");
-            $location.path("/principal");
+            $location.path("/cardapio");
             $scope.cardapioForm.$setPristine();
         }).error(function (data) {
             swal('Oopa!', 'Desculpe, mas não conseguimos atualzar a Task!', 'error')

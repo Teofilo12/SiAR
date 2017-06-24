@@ -17,7 +17,7 @@ angular.module("SiAR").controller("CadastrarPontoEletronicoManualCtrl", function
         pontoEletronicoAPI.postPontoManual(ponto_eletronico).success(function(data){
             delete $scope.ponto_eletronico;
             alert("Ponto Eletrônico Cadastrado com Sucesso!");
-            $location.path("/pontoEletronico");
+            $location.path("/pontosBatidos");
             $scope.pontoManualForm.$setPristine();
         });
     };

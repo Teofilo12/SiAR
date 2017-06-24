@@ -44,7 +44,7 @@
     <form name="cardapioForm" class="form-signin">
         <h2 class="form-signin-heading">Atualizar Item no Cardápio:</h2>
         <br><br>
-        <input type="file" name="img_cardapio" ng-model="cardapio.img_cardapio" class="form-control" placeholder="Foto" required id="img"/>
+        <input type="file" name="img_cardapio" ng-model="cardapio.img_cardapio" class="form-control" placeholder="Foto" id="img"/>
         <input type="text" name="itm_cardapio" ng-model="cardapio.itm_cardapio" class="form-control" placeholder="Nome do Item no Cardápio" required id="linha1" />
         <select class="form-control" ng-model="cardapio.cod_categoria" ng-options="cat.idt_categoria as cat.dsc_categoria for cat in categoria" required id="linha2">
             <option value="">Categorias</option>
@@ -55,7 +55,7 @@
         <input type="text" name="dsc_itm_cardapio" ng-model="cardapio.dsc_itm_cardapio" class="form-control" placeholder="Descrição do Item" required id="linha2"/>
         <br><br><br>
         <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="updateCardapio(cardapio)" type="submit" id="button" >Atualizar</button>
-        <button class="btn btn-lg btn-danger btn-block" ng-model=adicionarMenu ng-click="deleteCardapio(cardapio)" type="submit" id="button" >Deletar</button>
+        <button class="btn btn-lg btn-danger btn-block" ng-model=deletarMenu ng-click="DeletarCardapio(cardapio)" type="submit" id="button" >Deletar</button>
     </form>
 
 </div>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $http, $timeout, pontoEletronicoAPI, funcionarioAPI,$ionicPopup, $location)
+=======
+angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $http, $timeout, pontoEletronicoAPI, funcionarioAPI, $location)
+>>>>>>> origin/master
 {
     //  $scope.funcionario = funcionario.data;
 
@@ -43,10 +47,14 @@ angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $
                         ponto_eletronico.ponto_hr_saida = '0000-00-00 00:00';
                         pontoEletronicoAPI.postComPontoEntrada(ponto_eletronico).success(function (data) {
                             delete $scope.ponto_eletronico;
+<<<<<<< HEAD
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Sucesso!',
                                 template: 'Ponto de Entrada Batido com sucesso!'
                             });
+=======
+                            alert("Ponto de Entrada Batido com sucesso!");
+>>>>>>> origin/master
                             $scope.loginForm.$setPristine();
                         })
                     } else {
