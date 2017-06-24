@@ -7,7 +7,7 @@ angular.module("SiAR").controller("CadastrarCardapioCtrl", function ($scope, $ht
         cardapioAPI.postItemNoCardapio(cardapio).success(function(data){
             delete $scope.cardapio;
             alert("Item Cadastrado no Cardápio com Sucesso!");
-            $location.path("/principal");
+            $location.path("/cardapio");
             $scope.cardapioForm.$setPristine();
         });
     };

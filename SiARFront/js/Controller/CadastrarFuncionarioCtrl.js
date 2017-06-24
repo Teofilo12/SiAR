@@ -16,7 +16,7 @@ angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, 
         funcionarioAPI.postFuncionario(funcionario).success(function(data){
 			delete $scope.funcionario;
 			alert("Funcionário Cadastrado com Sucesso!");
-			$location.path("/principal");
+			$location.path("/listFuncionarios");
 			$scope.funcionarioForm.$setPristine();
 		});
 	};
