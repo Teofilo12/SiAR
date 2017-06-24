@@ -104,7 +104,7 @@ class TurnosFuncionarioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->prepare("DELETE FROM ta_turnos_funcionario WHERE idt_turnos_funcionario = ?");
+        $result = $conn->prepare("DELETE FROM ta_turnos_funcionario WHERE idt_turnos_funcionario= ?");
 
         $result->bindParam(1, $params['idt_turnos_funcionario']);
 

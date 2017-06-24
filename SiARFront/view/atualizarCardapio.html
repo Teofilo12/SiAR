@@ -54,8 +54,8 @@
         <input type="text" name="cod_restaurante" ng-model="cardapio.cod_restaurante" class="form-control" placeholder="Restaurante" required id="linha2"/>
         <input type="text" name="dsc_itm_cardapio" ng-model="cardapio.dsc_itm_cardapio" class="form-control" placeholder="Descrição do Item" required id="linha2"/>
         <br><br><br>
-        <button class="btn btn-lg btn-primary btn-block" ng-model=adicionarMenu ng-click="updateCardapio(cardapio)" type="submit" id="button" >Atualizar</button>
-        <button class="btn btn-lg btn-danger btn-block" ng-click="deleteCardapio(cardapio.idt_cardapio)" type="submit" id="button" >Deletar</button>
+        <button class="btn btn-lg btn-primary btn-block" ng-model=alterarMenu ng-click="AlterarCardapio(cardapio)" type="submit" id="button" >Atualizar</button>
+        <button class="btn btn-lg btn-danger btn-block" ng-model=deletarMenu ng-click="DeletarCardapio(cardapio)" type="submit" id="button" >Deletar</button>
     </form>
 
 </div>

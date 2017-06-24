@@ -24,8 +24,8 @@
     //         })
     // }
 
-    $scope.deleteFuncionario = function (cod_funcionario) {
-        funcionarioAPI.deleteCadastro(cod_funcionario).success(function (data) {
+    $scope.deleteFuncionario = function (cpf_funcionario) {
+        funcionarioAPI.deleteCadastro(cpf_funcionario).success(function (data) {
             alert("Funcionário excluído com sucesso!");
         });
     };

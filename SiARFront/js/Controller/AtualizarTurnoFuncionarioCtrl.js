@@ -1,4 +1,4 @@
-angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, diaFunc, turnoFunc, funcionario, $location)
+angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, diaFunc, turnoFunc, funcionario, $location)
 {
     $scope.funcionarioTurno = funcionarioTurno.data;
     $scope.funcionario = funcionario.data;
@@ -38,10 +38,18 @@ angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($sc
         });
     };
 
+    $scope.AtualizarTurno = function (turnos_funcionario) {
+        $scope.atualizar;
+        funcionarioAPI.putTurnosFuncionario(turnos_funcionario).success(function (data) {
+            $scope.turnos_funcionario = data;
+            $scope.funcionarioTurno.push(funcionarioTurno);
+        });
+    };
 
-    $scope.deleteTurno = function (idt_turnos_funcionario) {
-        funcionarioAPI.deleteFuncTurn(idt_turnos_funcionario).success(function (data) {
-            alert(idt_turnos_funcionario);
+    $scope.DeletarTurno = function (turnos_funcionario) {
+        $scope.deletarTurno;
+        funcionarioAPI.deleteFuncTurn(turnos_funcionario).success(function (data) {
+            alert(data);
             // console.log('Chegou aqui!');
         });
     };

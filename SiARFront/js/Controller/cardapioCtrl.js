@@ -20,4 +20,5 @@ angular.module("SiAR").controller("cardapioCtrl", function ($scope, $http, carda
             $scope.cardapioForm.$setPristine();
         });
     };
+
 });

@@ -22,23 +22,34 @@ angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $
     //     });
     // };
 
-    $scope.today = $filter('date')(new Date(), 'yyyy-MM-dd HH:MM');
+    $scope.today = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm');
+    $scope.diaBatido = $filter('date')(new Date(), 'yyyy-MM-dd');
     console.log($scope.today);
 
-    $scope.Logar = function(funcionario) {
-        funcionarioAPI.login(funcionario).success(function (data) {
+    $scope.Logar = function(ponto_eletronico) {
+
+        funcionarioAPI.login(ponto_eletronico).success(function (data) {
+
             if (data.length == 1) {
-                pontoEletronicoAPI.postComPontoEntrada(ponto_eletronico).success(function (data) {
-                    ponto_eletronico.cod_funcionario = funcionario.cpf_funcionario;
+
+                if (ponto_eletronico.ponto_hr_entrada == null) {
+                    ponto_eletronico.cod_funcionario = ponto_eletronico.cpf_funcionario;
                     ponto_eletronico.ponto_hr_entrada = $scope.today;
-                    delete $scope.ponto_eletronico;
-                    alert("Ponto Batido com sucesso!");
-                    // if (data.cod_funcao == 1)
-                    //     $location.path("/principal");
-                    // else{
-                    //     alert("Usuário não autorizado!")
-                    //
-                })
+                    ponto_eletronico.ponto_hr_saida = '0000-00-00 00:00';
+                    pontoEletronicoAPI.postComPontoEntrada(ponto_eletronico).success(function (data) {
+                        delete $scope.ponto_eletronico;
+                        alert("Ponto de Entrada Batido com sucesso!");
+                        $scope.loginForm.$setPristine();
+                    })
+                } else {
+                    ponto_eletronico.cod_funcionario = ponto_eletronico.cpf_funcionario;
+                    ponto_eletronico.ponto_hr_saida = $scope.today;
+                    pontoEletronicoAPI.putComPontoSaida(ponto_eletronico).success(function (data) {
+                        delete $scope.ponto_eletronico;
+                        alert("Ponto de Saída Batido com Sucesso!");
+                        $scope.loginForm.$setPristine();
+                    });
+                }
             } else {
                 alert("Dados incorretos!");
                 $scope.loginForm.$setPristine();
