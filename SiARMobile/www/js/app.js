@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('SiAR', ['ionic', 'SiAR.services','ionic-material']);
 
-app.run(function ($ionicPlatform) {
+app.run(function ($ionicPlatform, GeoAlert) {
   $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -16,7 +16,17 @@ app.run(function ($ionicPlatform) {
         if (window.StatusBar) {
           StatusBar.styleDefault();
         }
+
+      var lat = -15.8178547;
+      var long = -47.8367635;
+
+      GeoAlert.begin(lat,long, function() {
+          console.log('TARGET');
+          alert('você está perto do restaurante e está autorizado a bater ponto');
+          GeoAlert.end();
       });
+
+  });
 })
 
 app.config(function ($stateProvider, $urlRouterProvider) {
@@ -43,91 +53,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           }
       }
   })
-
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    //controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-    url: '/browse',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/browse.html'
-      }
-    }
-  })
-  .state('app.playlists', {
-    url: '/playlists',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlists.html',
-        controller: 'PlaylistsCtrl'
-      }
-    }
-  })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  })
-
-  .state('app.gerarProtocolo', {
-    url: '/gerarProtocolo',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/gerarProtocolo.html',
-        controller: 'ProtocoloCtrl'
-      }
-    }
-  })
-
-  .state('app.validarProtocolo', {
-    url: '/validarProtocolo',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/validarProtocolo.html',
-        controller: 'ProtocoloCtrl'
-      }
-    }
-  })
-
-  .state('app.pictures', {
-    url: '/tab-pictures',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/tab-pictures.html',
-        controller: 'PicturesCtrl'
-      }
-    }
-  })
-
-.state('app.cadastrarTarefas', {
-    url: '/cadastrarTarefas',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/cadastrarTarefas.html',
-        controller: 'TarefasCtrl'
-      }
-    }
-  })
-  
   ;
 
   // if none of the above states are matched, use this as the fallback
