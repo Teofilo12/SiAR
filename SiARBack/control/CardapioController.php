@@ -53,7 +53,14 @@ class CardapioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM ta_cardapio WHERE ".$crit);
+        $result = $conn->query("SELECT card.idt_cardapio, card.itm_cardapio, cat.dsc_categoria, 
+                                                rest.nme_restaurante,card.vlr_itm_cardapio, card.img_cardapio,
+                                                card.dsc_itm_cardapio 
+                                          FROM ta_cardapio card,
+                                               tt_categoria cat,
+                                               tb_restaurante rest 
+                                          WHERE card.cod_categoria = cat.idt_categoria
+                                          AND card.cod_restaurante = rest.cnpj_restaurante AND ".$crit);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 

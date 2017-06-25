@@ -1,4 +1,4 @@
-angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $http, $timeout, pontoEletronicoAPI, funcionarioAPI,$ionicPopup, $location)
+angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $http, $timeout, pontoEletronicoAPI, funcionarioAPI,$ionicPopup)
 {
     //  $scope.funcionario = funcionario.data;
 
@@ -45,7 +45,7 @@ angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $
                             delete $scope.ponto_eletronico;
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Sucesso!',
-                                template: 'Ponto de Entrada Batido com sucesso!'
+                                template: 'Ponto de Entrada Batido!'
                             });
                             $scope.loginForm.$setPristine();
                         })
@@ -54,12 +54,18 @@ angular.module("SiAR").controller("BaterPontoCtrl", function ($scope, $filter, $
                         ponto_eletronico.ponto_hr_saida = $scope.today;
                         pontoEletronicoAPI.putComPontoSaida(ponto_eletronico).success(function (data) {
                             delete $scope.ponto_eletronico;
-                            alert("Ponto de Saída Batido com Sucesso!");
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Sucesso!',
+                                template: 'Ponto de Saída Batido!'
+                            });
                             $scope.loginForm.$setPristine();
                         });
                     }
                 } else {
-                    alert("Dados incorretos!");
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Falha!',
+                        template: 'Dados Incorretos!'
+                    });
                     $scope.loginForm.$setPristine();
                 }
             });

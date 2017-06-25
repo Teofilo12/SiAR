@@ -1,31 +1,49 @@
-<style>
-	.jumbotron{
-		width: 800px;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.center{
-		margin-left: auto;
-		margin-right: auto;
-	}
-</style>
 
-<div class="tabs-striped  tabs-background-positive tabs-color-light">
-	<div class="tabs">
-		<a class="tab-item " href="#/BaterPonto"><i class="icon ion-unlocked"></i>Bater Ponto</a>
-		<a class="tab-item active" href="#/cardapio"> <i class="icon ion-person"></i>Cardápio</a>
-	</div>
-</div>
+	<!--<div class="tabs-striped  tabs-background-positive tabs-color-light">-->
+		<!--<div class="tabs">-->
+			<!--<a class="tab-item active" href="#/BaterPonto"><i class="icon ion-unlocked"></i>Bater Ponto</a>-->
+			<!--<a class="tab-item" href="#/cardapio"> <i class="icon ion-person"></i>Cardápio</a>-->
+		<!--</div>-->
+	<!--</div>-->
+<body ng-controller="MainCtrl">
+    <ion-side-menus>
+        <ion-header-bar class="bar bar-header bar-dark">
+            <!-- Toggle left side menu -->
+            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            <p class="title">SiAR</p>
+        </ion-header-bar>
 
-<ion-view view-title="Cardapio" class="loginBg" hide-nav-bar="true" >
-	<ion-content class="padding">
+        <ion-side-menu side="left">
+            <ion-list>
+                <ion-item ng-href="#">Ponto Eletrônico</ion-item>
+                <ion-item ui-sref="BaterPonto">Ponto Eletrônico</ion-item>
+                <ion-item ui-sref="Cardapio">Cardápio</ion-item>
+                <ion-item ng-href="#">Avaliar Garçom</ion-item>
+            </ion-list>
 
-		<div class="jumbotron" ng-repeat="carda in cardapio">
-				<div class="d-flex w-100 justify-content-between">
-					<h2 class="mb-1">{{carda.itm_cardapio}}</h2>
-					<small>{{carda.dsc_itm_cardapio}}</small>
-				</div>
-		</div>
+        </ion-side-menu>
+        <ion-side-menu-content>
+    <ion-nav-view>
+<ion-view view-title="cardapio">
+	<ion-content>
+                <ion-list>
+                    <!--<div class="item item-divider">-->
+                        <!--{{cardapio.dsc_categoria}}-->
+                    <!--</div>-->
+                    <div class="list">
+                    <ion-item ng-repeat="carda in cardapio">
+                    <div class="item">
+                        <div class="item item-thumbnail-left">
+                        <p><h1>{{carda.itm_cardapio}}</h1> | {{carda.vlr_itm_cardapio}}</p>
+                        <h2>{{carda.dsc_itm_cardapio}}</h2>
+                        </div>
+                    </div>
+                    </ion-item>
+                    </div>
+                </ion-list>
 	</ion-content>
 </ion-view>
+</ion-nav-view>
+</ion-side-menu-content>
+</ion-side-menus>
+</body>

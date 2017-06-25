@@ -29,6 +29,18 @@ app.run(function ($ionicPlatform, GeoAlert) {
   });
 })
 
+app.controller('MainCtrl', function ($scope,$ionicSideMenuDelegate, $state) {
+
+    $scope.toggleLeft = function () {
+        $ionicSideMenuDelegate.toggleLeft()
+    }
+
+    $scope.goto=function(toState,params){
+        $state.go(toState,params)
+    }
+
+})
+
 app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -44,8 +56,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   })
 
   .state('Cardapio', {
-    url: '/cardapio',
-    templateUrl: 'templates/cardapio.html',
+    url: '/Cardapio',
+    templateUrl: 'templates/Cardapio.html',
     controller: 'CardapioCtrl',
     resolve: {
           cardapio: function (cardapioAPI) {

@@ -32,6 +32,7 @@ class ControlManager
 		{
 			case "GET":
 				return $this->resourceController->searchResource($request);
+//                return $this->resourceController->searchPonto($request);
 				break;
 
 			case "POST":
