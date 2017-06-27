@@ -1,9 +1,10 @@
 angular.module("SiAR").factory("listFuncionariosAPI", function($http, config){
 
 	var _getFuncionarios = function () {
-		return $http.get(config.baseUrl + "/funcionario/?");
+		return $http.get(config.baseUrl + "/funcionario/?")
+
     };
-	var _getFuncoes = function () {
+    var _getFuncao = function () {
         return $http.get(config.baseUrl + "/funcao/?");
     };
     var _getFuncionario = function (cpf_funcionario) {
@@ -15,7 +16,7 @@ angular.module("SiAR").factory("listFuncionariosAPI", function($http, config){
     };
   return{
       getFuncionarios: _getFuncionarios,
-      getFuncoes: _getFuncoes,
+      getFuncao: _getFuncao,
       getFuncionario: _getFuncionario,
       login: _login
     };

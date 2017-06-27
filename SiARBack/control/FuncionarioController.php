@@ -76,7 +76,20 @@ class FuncionarioController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT * FROM tb_funcionario WHERE ".$crit);
+        $result = $conn->query("SELECT func.cpf_funcionario, func.nme_funcionario, func.dta_nasc_funcionario, 
+                                                 func.cod_funcao, f.dsc_funcao, func.tel_funcionario, func.end_funcionario, 
+                                                 func.cod_restaurante, rest.nme_restaurante, func.pwd_funcionario, 
+                                                 func.rg_funcionario, func.cod_estado_civil, ec.dsc_estado_civil,
+                                                 func.cel_funcionario, func.sex_funcionario, func.cep_funcionario, 
+                                                 func.end_nr_funcionario, func.img_funcionario, func.end_bairro_funcionario,
+                                                 func.end_cidade_funcionario, func.end_estado_funcionario
+                                          FROM tb_funcionario func,
+                                               tt_estado_civil ec,
+                                               tb_restaurante rest,
+                                               tt_funcao f
+                                               WHERE func.cod_funcao = f.idt_funcao
+                                               AND func.cod_restaurante = rest.cnpj_restaurante
+                                               AND func.cod_estado_civil = ec.idt_estado_civil AND " . $crit);
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 
