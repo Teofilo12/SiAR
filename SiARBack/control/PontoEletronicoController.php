@@ -98,9 +98,18 @@ class PontoEletronicoController
 
     private function generateUpdateQuery($params)
     {
-        return  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
+        var_dump($params);
+
+//        return  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
+    $sql =  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
             " WHERE cod_funcionario = '" . $params["cod_funcionario"] .
-            "' AND   ponto_hr_entrada LIKE ". " '" .$params["ponto_hr_entrada"]."%'" ;
+            "' AND   ponto_hr_entrada = (SELECT MAX(ponto_hr_entrada) FROM tb_ponto_eletronico WHERE cod_funcionario = '" .$params["cod_funcionario"]."')";
+
+    var_dump($sql);
+
+    return $sql;
+//            " WHERE cod_funcionario = '" . $params["cod_funcionario"] .
+//            "' AND   ponto_hr_entrada LIKE ". " '" .$params["ponto_hr_entrada"]."%'" ;
 //        return "UPDATE tb_ponto_eletronico SET " . $crit . " WHERE idt_ponto_eletronico = '" . $params["idt_ponto_eletronico"] . "'";
     }
     private function generateUpdateCriteria($params)
