@@ -13,19 +13,25 @@ angular.module('SiAR.services', [])
 
     diaBatido = $filter('date')(new Date(), 'yyyy-MM-dd');
 
-        var _getPontoEntradaDoDia = function (ponto_eletronico) {
-              return $http.get("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario=" + ponto_eletronico.cod_funcionario
+        var _getPontoEntradaDoDia = function (cpf_funcionario) {
+              return $http.get("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario=" + cpf_funcionario
                   + "&ponto_hr_entrada=" + diaBatido);
+        };
+
+        var _getPontoSaidaDoDia = function (cpf_funcionario) {
+            return $http.get("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario=" + cpf_funcionario
+                + "&ponto_hr_saida=" + diaBatido);
         };
 
         var _putComPontoSaida = function(ponto_eletronico){
             return $http.put("http://localhost/SiARBack/ponto_eletronico/?cod_funcionario="
-                + ponto_eletronico.cod_funcionario + "&ponto_hr_entrada=" + diaBatido + "&ponto_hr_saida="
+                + ponto_eletronico.cod_funcionario + "&ponto_hr_saida="
                 + ponto_eletronico.ponto_hr_saida)
         };
 
         return {
             getPontoEntradaDoDia: _getPontoEntradaDoDia,
+            getPontoSaidaDoDia: _getPontoSaidaDoDia,
             postComPontoEntrada: _postComPontoEntrada,
             putComPontoSaida: _putComPontoSaida
         };
@@ -64,7 +70,7 @@ angular.module('SiAR.services', [])
         var long, lat;
         var processing = false;
         var callback;
-        var minDistance = 10;
+        var minDistance = 40;
 
         // Credit: http://stackoverflow.com/a/27943/52160
         function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {

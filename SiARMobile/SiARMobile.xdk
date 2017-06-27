@@ -4,9 +4,9 @@
       "type": "Import",
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
-      "projectGuid": "24a777aa-b3c1-4ab0-82be-715ca1cfbb08",
-      "lastModifiedDate": 1498353445441,
-      "creationDate": 1498247895725
+      "projectGuid": "36bbbf08-3924-4d95-b8b3-b486d3c40169",
+      "lastModifiedDate": 1498519758267,
+      "creationDate": 1498519748586
     },
     "testDirectory": "test",
     "projectTags": [
