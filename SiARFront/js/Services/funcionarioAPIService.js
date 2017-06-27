@@ -48,7 +48,6 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/restaurante/?");
     };
 
-
     var _deleteFuncTurn = function (idt_turnos_funcionario) {
         return $http.delete(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario=" + idt_turnos_funcionario);
     };
