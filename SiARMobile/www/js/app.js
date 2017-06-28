@@ -68,6 +68,22 @@ angular.module('SiAR', ['ionic', 'SiAR.controllers','SiAR.services','ionic-mater
               }
           }
 
+      })
+
+      .state('app.Avaliacao', {
+          url: '/Avaliacao',
+          views:{
+              'menuContent':{
+                  templateUrl: 'templates/Avaliacao.html',
+                  controller: 'AvaliacaoCtrl',
+                  resolve: {
+                      funcionario: function (avaliacaoAPI) {
+                          return avaliacaoAPI.getGarcons();
+                      }
+                  }
+              }
+          }
+
       });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/BaterPonto');

@@ -6,6 +6,11 @@ angular.module("SiAR").controller("atualizarFuncionarioCtrl", function ($scope, 
     //     var year = date.getFullYear();
     //     return year + "-" + month + "-" + day;
     // };
+    $scope.sexo = [
+        {boolean:0, dsc_sexo:"Feminino"},
+        {boolean:1, dsc_sexo:"Masculino"}
+    ];
+
     funcionarioAPI.getEstadoCivil().success(function (data) {
         $scope.estadocivil = data;
     });
