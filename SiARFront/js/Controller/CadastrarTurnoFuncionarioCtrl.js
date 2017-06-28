@@ -39,10 +39,10 @@ angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($sc
     };
 
 
-    $scope.deleteTurno = function (idt_turnos_funcionario) {
-        funcionarioAPI.deleteFuncTurn(idt_turnos_funcionario).success(function (data) {
-            alert(idt_turnos_funcionario);
-            // console.log('Chegou aqui!');
+    $scope.deleteTurno = function (turnos_funcionario) {
+         $scope.deletar;
+         funcionarioAPI.deleteFuncTurn(turnos_funcionario).success(function (data) {
+             alert("Turno excluido com sucesso!");
         });
     };
 

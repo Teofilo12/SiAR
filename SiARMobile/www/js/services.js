@@ -63,6 +63,22 @@ angular.module('SiAR.services', [])
         };
     })
 
+.factory ("avaliacaoAPI",function($http){
+
+    var _getGarcons = function () {
+        return $http.get("http://localhost/SiARBack/funcionario/?cod_funcao=4");
+    }
+    
+    var _postAvaliacao = function (avaliacao) {
+        return $http.post("http://localhost/SiARBack/avaliacao/?cod_funcionario=" + avaliacao.cod_funcionario +
+                            "&nta_avaliacao=" + avaliacao.nta_avaliacao + "&txt_cliente=" + avaliacao.txt_cliente);
+    }
+    return {
+        getGarcons: _getGarcons,
+        postAvaliacao: _postAvaliacao
+    };
+})
+
 .factory('GeoAlert', function() {
         console.log('GeoAlert service instantiated');
         var interval;
@@ -122,5 +138,4 @@ angular.module('SiAR.services', [])
                 lat = lt;
             }
         };
-
     });

@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Avaliação de Garçom</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAvaliacao()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="AdicionarAvaliacao(avaliacao)">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Garçom
+          </div>
+          <select class="form-control" ng-model="avaliacao.cod_funcionario"
+                  ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario">
+            <option value=""></option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Nota de Atendimento
+          </div>
+          <select ng-model="avaliacao.nta_avaliacao">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <label class="item item-input"><textarea cols="40" rows="5" ng-model="avaliacao.txt_cliente" placeholder="Comentário"></textarea></label>
+        <br>
+        <label class="item">
+          <button class="button button-block button-positive" ng-disable="avaliacao.cod_funcionario&&avaliacao.nta_avaliacao" type="submit">Enviar Avaliação</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

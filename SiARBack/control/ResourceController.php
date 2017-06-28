@@ -11,6 +11,7 @@ include_once "control/DiaController.php";
 include_once "control/TurnoController.php";
 include_once "control/EstadoCivilController.php";
 include_once "control/RestauranteController.php";
+include_once "control/AvaliacaoController.php";
 
 class ResourceController
 {
@@ -27,6 +28,7 @@ class ResourceController
         "turno" => "TurnoController",
         "estado_civil" => "EstadoCivilController",
         "restaurante" => "RestauranteController",
+        "avaliacao" => "AvaliacaoController"
 	];
 
 	public function createResource($request)

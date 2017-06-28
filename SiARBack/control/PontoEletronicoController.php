@@ -102,8 +102,7 @@ class PontoEletronicoController
 
 //        return  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
     $sql =  "UPDATE tb_ponto_eletronico SET ponto_hr_saida = " . " '" .$params["ponto_hr_saida"] ."' " .
-            " WHERE cod_funcionario = '" . $params["cod_funcionario"] .
-            "' AND   ponto_hr_entrada = (SELECT MAX(ponto_hr_entrada) FROM tb_ponto_eletronico WHERE cod_funcionario = '" .$params["cod_funcionario"]."')";
+            " WHERE ponto_hr_saida = '0000-00-00 00:00:00' AND   cod_funcionario = '" .$params["cod_funcionario"]."'";
 
     var_dump($sql);
 

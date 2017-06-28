@@ -9,6 +9,12 @@ angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, 
 	// 	return year + "-" + month + "-" + day;
 	// }
 
+	$scope.sexo = [
+		{boolean:0, dsc_sexo:"Feminino"},
+        {boolean:1, dsc_sexo:"Masculino"}
+	];
+
+
 
 	$scope.adicionarFuncionario = function(funcionario){
 		$scope.adicionarF;

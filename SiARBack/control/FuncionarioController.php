@@ -80,9 +80,13 @@ class FuncionarioController
                                                  func.cod_funcao, f.dsc_funcao, func.tel_funcionario, func.end_funcionario, 
                                                  func.cod_restaurante, rest.nme_restaurante, func.pwd_funcionario, 
                                                  func.rg_funcionario, func.cod_estado_civil, ec.dsc_estado_civil,
-                                                 func.cel_funcionario, func.sex_funcionario, func.cep_funcionario, 
-                                                 func.end_nr_funcionario, func.img_funcionario, func.end_bairro_funcionario,
-                                                 func.end_cidade_funcionario, func.end_estado_funcionario
+                                                 func.cel_funcionario,
+                                                 CASE WHEN func.sex_funcionario = 0 THEN
+                                                   'Feminino'
+                                                  ELSE
+                                                    'Masculino'
+                                                 END AS 'func.sex_funcionario', func.cep_funcionario, func.end_nr_funcionario, func.img_funcionario, 
+                                                 func.end_bairro_funcionario, func.end_cidade_funcionario, func.end_estado_funcionario
                                           FROM tb_funcionario func,
                                                tt_estado_civil ec,
                                                tb_restaurante rest,
