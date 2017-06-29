@@ -15,46 +15,13 @@
     <div class="row content">
         <div class="col-sm-8 text-left">
             <div class="jumbotron">
-                <center><h2>Adicione os turnos de seu funcionário:</h2></center>
+                <center><h2>Atualize o turno do seu funcionário:</h2></center>
                     <hr>
-                <form name="turnosFuncionarioForm">
-                <select class="form-control" ng-model="turnos_funcionario.cod_funcionario"
-                 ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario"  required>
-                    <!--ng-submit="carregarTurnosFuncionario(cod_funcionario)"-->
-                    <option value="">Funcionário</option>
-                </select>
-                    <!--<div>-->
-                    <!--<input type="text" ng-model="turnos_funcionario.cod_funcionario" value="{{funcionario.cpf_funcionario}}">-->
-                    <!--</div>-->
-                <br>
-                <div class="row">
-                   <div class="col-md-12">
-                       <table class="table table-striped">
-                           <thead>
-                           <tr>
-                               <td>Dia</td>
-                               <td>Turno</td>
-                           </tr>
-                           </thead>
-                           <tbody>
-                           <div>
-                           <tr ng-repeat="ft in funcionarioTurno">
-                               <td>{{ft.dsc_dia}}</td>
-                               <td>{{ft.dsc_turno}}</td>
-                               <td><a href="#" ng-model=deletarTurno ng-click="DeletarTurno(ft.idt_turnos_funcionario)">Deletar</a></td>
 
-                               <!--<td>{{ft.cod_dia}}</td>-->
-                               <!--<td>{{ft.cod_turno}}</td>-->
-                           </tr>
-                           </div>
-                           </tbody>
-                       </table>
-                   </div>
-                </div>
-                <br>
+
                 <div class="row">
                     <div class="col-md-6">
-                        <select class="form-control" ng-model="turnos_funcionario.cod_dia"
+                        <select class="form-control" ng-model="cod_dia"
                                 ng-options="day.idt_dia as day.dsc_dia for day in dias" required>
                             <option value="">Dia</option>
                         </select>
@@ -70,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button class="btn btn-primary btn-block"
-                                ng-model="adicionar" ng-click="AdicionarTurno(turnos_funcionario)"
+                                ng-model="adicionar" ng-click="AtualizarTurno(turnos_funcionario)"
                                 ng-disabled="!(turnos_funcionario.cod_funcionario && turnos_funcionario.cod_dia && turnos_funcionario.cod_turno)"
                                 type="submit" >Salvar</button>
                     </div>

@@ -85,6 +85,7 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/turno/?");
     };
 
+
     var _postTurnosFuncionario = function (turnos_funcionario) {
         return $http.post(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario=1&cod_funcionario=" +
             turnos_funcionario.cod_funcionario + "&cod_turno=" + turnos_funcionario.cod_turno + "&cod_dia=" +
