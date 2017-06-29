@@ -7,7 +7,7 @@ angular.module("SiAR").controller("atualizarCardapioCtrl", function ($scope, $ht
     });
 
     cardapioAPI.getRestaurante().success(function (data) {
-        $scope.restauranteCard = data;
+        $scope.restaurante = data;
     });
 
     var ToObject = function (cardapio) {

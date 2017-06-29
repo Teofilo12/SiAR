@@ -42,9 +42,10 @@ class PontoEletronicoController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT pe.cod_funcionario, func.nme_funcionario, pe.ponto_hr_entrada,pe.ponto_hr_saida
-                                          FROM tb_ponto_eletronico AS pe, tb_funcionario AS func
-                                          WHERE func.cpf_funcionario = pe.cod_funcionario AND ".$crit.
+        $result = $conn->query("SELECT pe.cod_funcionario, func.nme_funcionario, f.dsc_funcao, pe.ponto_hr_entrada,pe.ponto_hr_saida
+                                          FROM tb_ponto_eletronico AS pe, tb_funcionario AS func, tt_funcao AS f
+                                          WHERE func.cpf_funcionario = pe.cod_funcionario AND
+                                                f.idt_funcao = func.cod_funcao AND ".$crit.
                                         " ORDER BY func.nme_funcionario ASC, pe.ponto_hr_entrada ASC");
 
        // $result = $conn->query("SELECT * FROM tb_ponto_eletronico WHERE ".$crit);

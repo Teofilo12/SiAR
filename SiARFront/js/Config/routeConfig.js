@@ -123,7 +123,6 @@ angular.module("SiAR").config(function($routeProvider){
         resolve:{
             cardapio: function(cardapioAPI, $route){
                 return cardapioAPI.getItemDoCardapio($route.current.params.idt_cardapio);
-
             }
         }
 

@@ -24,13 +24,16 @@
         </div>
         <!-- Example row of columns -->
         <div class="container text-center">
-            <h2>Funcionários presentes neste momento:</h2>
+            <h2>Funcionário(s) presente(s) neste momento:</h2>
         </div>
 
-            <table class="jumbotron">
-                <tr class="center" ng-repeat="main in principal | filter:test">
+            <table class="jumbotron" ng-repeat="main in principal">
+                <tr>
                   <!--<td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>-->
                     <td><h3>{{main.nme_funcionario}}</h3></td>
+                    <td><h3>{{main.dsc_funcao}}</h3></td>
+                    <td><h3>Presente desde {{main.ponto_hr_entrada}}</h3></td>
+                    <td><a href="#/funcionario/{{main.cod_funcionario}}" class="list-group-item">Ver Perfil</a></td>
                     <!--<td ng-repeat="employee in funcionario"><a class="btn btn-primary" href="#/funcionario/{{employee.cpf_funcionario}}">Ver Perfil</a></td>-->
                 </tr>
             </table>
