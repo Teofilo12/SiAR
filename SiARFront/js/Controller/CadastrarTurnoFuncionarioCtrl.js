@@ -1,4 +1,4 @@
-angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, diaFunc, turnoFunc, funcionario, $location)
+angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, diaFunc, turnoFunc, funcionario, $location, $window)
 {
     $scope.funcionarioTurno = funcionarioTurno.data;
     $scope.funcionario = funcionario.data;
@@ -35,6 +35,7 @@ angular.module("SiAR").controller("CadastrarTurnoFuncionarioCtrl", function ($sc
         funcionarioAPI.postTurnosFuncionario(turnos_funcionario).success(function (data) {
             $scope.turnos_funcionario = data;
             $scope.funcionarioTurno.push(funcionarioTurno);
+            $window.location.reload();
         });
     };
 
