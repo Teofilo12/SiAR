@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <select class="form-control" ng-model="cod_dia"
+                        <select class="form-control" ng-model="turnos_funcionario.cod_dia"
                                 ng-options="day.idt_dia as day.dsc_dia for day in dias" required>
                             <option value="">Dia</option>
                         </select>
@@ -38,7 +38,7 @@
                     <div class="col-md-12">
                         <button class="btn btn-primary btn-block"
                                 ng-model="adicionar" ng-click="AtualizarTurno(turnos_funcionario)"
-                                ng-disabled="!(turnos_funcionario.cod_funcionario && turnos_funcionario.cod_dia && turnos_funcionario.cod_turno)"
+                                ng-disabled="!(turnos_funcionario.cod_dia && turnos_funcionario.cod_turno)"
                                 type="submit" >Salvar</button>
                     </div>
                 </div>
