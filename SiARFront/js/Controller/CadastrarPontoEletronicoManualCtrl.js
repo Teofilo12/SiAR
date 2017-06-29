@@ -2,12 +2,12 @@ angular.module("SiAR").controller("CadastrarPontoEletronicoManualCtrl", function
 {
 
      var formatDate = function (date) {
-     	var day = date.getDay();
+     	var day = date.getDate();
      	var month = date.getMonth();
      	var year = date.getFullYear();
      	var hour = date.getHours();
      	var minute = date.getMinutes();
-     	return year + "-" + month + "-" + day + " " + hour + ":" + minute;
+     	return year + "-" + (month+1) + "-" + day + " " + hour + ":" + minute;
      };
 
     $scope.adicionarPonto = function(ponto_eletronico){
