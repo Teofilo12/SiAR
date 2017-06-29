@@ -1,6 +1,7 @@
-    angular.module("SiAR").controller("funcionarioCtrl", function ($scope, $http, funcionario, funcionarioAPI)
+    angular.module("SiAR").controller("funcionarioCtrl", function ($scope, $http, funcionario, funcionarioTurno, funcionarioAPI)
 {
 	$scope.funcionario = funcionario.data;
+    $scope.funcionarioTurno = funcionarioTurno.data;
 	// $scope.funcEstCiv = funcEstCiv.data;
 	// $scope.funcRest = funcRest.data;
 	// $scope.funcFuncao = funcFuncao.data;
