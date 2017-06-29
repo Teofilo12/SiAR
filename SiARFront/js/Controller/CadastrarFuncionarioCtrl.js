@@ -9,13 +9,6 @@ angular.module("SiAR").controller("CadastrarFuncionarioCtrl", function ($scope, 
 	// 	return year + "-" + month + "-" + day;
 	// }
 
-	$scope.sexo = [
-		{boolean:0, dsc_sexo:"Feminino"},
-        {boolean:1, dsc_sexo:"Masculino"}
-	];
-
-
-
 	$scope.adicionarFuncionario = function(funcionario){
 		$scope.adicionarF;
        funcionario.dta_nasc_funcionario = $filter('date')(new Date(funcionario.dta_nasc_funcionario), 'yyyy-MM-dd');

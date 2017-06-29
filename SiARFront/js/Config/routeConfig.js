@@ -39,6 +39,9 @@ angular.module("SiAR").config(function($routeProvider){
             funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
+            funcionarioTurno: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getFuncTurno($route.current.params.cpf_funcionario);
+            }
             // funcEstCiv: function (funcionarioAPI, $route) {
             //     return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
             // },
