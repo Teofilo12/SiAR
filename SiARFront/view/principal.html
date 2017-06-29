@@ -14,26 +14,25 @@
     }
 </style>
 <div class="container">
+        <div class="container text-center">
+            <h1>Bem-vindo ao SiAR</h1>
+            <p>Este é um sistema voltado para gerenciamento de funcionários como foco principal cadastro
+                e manipulação de informações relacionadas a cada funcionário e ponto eletrônico.</p>
+            </div>
+            <hr>
+        </div>
+        <!-- Example row of columns -->
+        <div class="container text-center">
+            <h2>Funcionário(s) presente(s) neste momento:</h2>
+        </div>
 
-    <div class="container text-center">
-        <h1>Bem-vindo ao SiAR</h1>
-        <p>Este é um sistema voltado para gerenciamento de funcionários como foco principal cadastro
-            e manipulação de informações relacionadas a cada funcionário e ponto eletrônico.</p>
-    </div>
-    <hr>
-</div>
-<!-- Example row of columns -->
-<div class="container text-center">
-    <h2>Funcionário(s) presente(s) neste momento:</h2>
-</div>
-
-<table class="jumbotron" ng-repeat="main in principal">
-    <tr>
-        <!--<td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>-->
-        <td><h3>{{main.nme_funcionario}}</h3></td>
-        <td><h3>{{main.dsc_funcao}}</h3></td>
-        <td><h3>Presente desde {{main.ponto_hr_entrada}}</h3></td>
-        <td><a href="#/funcionario/{{main.cod_funcionario}}" class="list-group-item">Ver Perfil</a></td>
-        <!--<td ng-repeat="employee in funcionario"><a class="btn btn-primary" href="#/funcionario/{{employee.cpf_funcionario}}">Ver Perfil</a></td>-->
-    </tr>
-</table>
+            <table class="jumbotron" ng-repeat="main in principal">
+                <tr>
+                  <!--<td><img ng-src="data:image/JPEG;base64,{{employee.img_funcionario}}"></td>-->
+                    <td><h3>{{main.nme_funcionario}}</h3></td>
+                    <td><h3>{{main.dsc_funcao}}</h3></td>
+                    <td><h3>Presente desde {{main.ponto_hr_entrada}}</h3></td>
+                    <td><a href="#/funcionario/{{main.cod_funcionario}}" class="list-group-item">Ver Perfil</a></td>
+                    <!--<td ng-repeat="employee in funcionario"><a class="btn btn-primary" href="#/funcionario/{{employee.cpf_funcionario}}">Ver Perfil</a></td>-->
+                </tr>
+            </table>
