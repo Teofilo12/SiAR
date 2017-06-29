@@ -70,8 +70,10 @@
         <br><br>
         <input type="text" name="tel_funcionario" ng-model="funcionario.tel_funcionario" class="form-control" placeholder="Telefone" required id="linha2"/>
         <!--<input type="text" name="sex_funcionario" ng-model="funcionario.sex_funcionario" class="form-control" placeholder="Sexo" required id="linha2"/>-->
-        <select class="form-control" ng-model="funcionario.sex_funcionario" ng-options="sex.boolean as sex.dsc_sexo for sex in sexo" required id="linha2">
+        <select class="form-control" ng-model="funcionario.sex_funcionario" required id="linha2">
             <option value="">Sexo</option>
+            <option value="0">Feminino</option>
+            <option value="1">Masculino</option>
         </select>
         <input type="text" name="cep_funcionario" ng-model="funcionario.cep_funcionario" class="form-control" placeholder="CEP" required id="linha2"/>
         <select class="form-control" ng-model="funcionario.cod_estado_civil" ng-options="estciv.idt_estado_civil as estciv.dsc_estado_civil for estciv in estadocivil" required id="linha2">

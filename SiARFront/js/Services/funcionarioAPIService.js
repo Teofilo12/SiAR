@@ -77,6 +77,10 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/turnos_funcionario/?cpf_funcionario=" + cpf_funcionario);
     };
 
+    var _getTurnoFuncionario = function (idt_turnos_funcionario) {
+        return $http.get(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario=" + idt_turnos_funcionario);
+    };
+
     var _getDias = function () {
         return $http.get(config.baseUrl + "/dia/?");
     };
@@ -85,6 +89,7 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         return $http.get(config.baseUrl + "/turno/?");
     };
 
+
     var _postTurnosFuncionario = function (turnos_funcionario) {
         return $http.post(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario=1&cod_funcionario=" +
             turnos_funcionario.cod_funcionario + "&cod_turno=" + turnos_funcionario.cod_turno + "&cod_dia=" +
@@ -92,9 +97,8 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
     };
 
     var _putTurnosFuncionario = function (turnos_funcionario) {
-        return $http.put(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario"+ turnos_funcionario.idt_turnos_funcionario+"&cod_funcionario=" +
-            turnos_funcionario.cod_funcionario + "&cod_turno=" + turnos_funcionario.cod_turno + "&cod_dia=" +
-            turnos_funcionario.cod_dia);
+        return $http.put(config.baseUrl + "/turnos_funcionario/?idt_turnos_funcionario="+ turnos_funcionario.idt_turnos_funcionario+
+            "&cod_turno=" + turnos_funcionario.cod_turno + "&cod_dia=" + turnos_funcionario.cod_dia);
     };
 
     var _login = function(funcionario){
@@ -119,6 +123,7 @@ angular.module("SiAR").factory ("funcionarioAPI",function($http, config){
         getDias: _getDias,
         getTurnos: _getTurnos,
         getTurnosFuncionario: _getTurnosFuncionario,
+        getTurnoFuncionario: _getTurnoFuncionario,
         postTurnosFuncionario: _postTurnosFuncionario,
         putTurnosFuncionario: _putTurnosFuncionario,
         login: _login

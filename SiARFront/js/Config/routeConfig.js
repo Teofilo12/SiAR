@@ -1,9 +1,5 @@
 angular.module("SiAR").config(function($routeProvider){
-	$routeProvider.when("/login",{
-		templateUrl: "view/login.html",
-		controller: "loginCtrl"
-	});
-    $routeProvider.when("/principal",{
+	$routeProvider.when("/principal",{
         templateUrl: "view/principal.html",
         controller: "principalCtrl"
     });
@@ -39,6 +35,9 @@ angular.module("SiAR").config(function($routeProvider){
             funcionario: function (listFuncionariosAPI, $route) {
                 return listFuncionariosAPI.getFuncionario($route.current.params.cpf_funcionario);
             },
+            funcionarioTurno: function (funcionarioAPI, $route) {
+                return funcionarioAPI.getTurnosFuncionario($route.current.params.cpf_funcionario);
+            }
             // funcEstCiv: function (funcionarioAPI, $route) {
             //     return funcionarioAPI.getFuncEstadoCivil($route.current.params.cpf_funcionario);
             // },
@@ -95,9 +94,10 @@ angular.module("SiAR").config(function($routeProvider){
         templateUrl: "view/AtualizarTurnoFuncionario.html",
         controller: "AtualizarTurnoFuncionarioCtrl",
         resolve:{
-            AtualizarTurnoFuncionario: function(funcionarioAPI, $route){
-                return funcionarioAPI.getTurnosFuncionario($route.current.params.idt_turnos_funcionario);
+            turnos_funcionario: function(funcionarioAPI, $route){
+                return funcionarioAPI.getTurnoFuncionario($route.current.params.idt_turnos_funcionario);
             }
+
         }
 
     });
@@ -140,5 +140,5 @@ angular.module("SiAR").config(function($routeProvider){
 
     });
 
-    $routeProvider.otherwise({redirectTo:"/login"})
+    $routeProvider.otherwise({redirectTo:"/principal"})
 });

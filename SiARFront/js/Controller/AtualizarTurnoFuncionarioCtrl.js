@@ -1,10 +1,16 @@
-angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($scope, $http, funcionarioAPI, funcionarioTurno, diaFunc, turnoFunc, funcionario, $location)
+angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($scope, $http, turnos_funcionario, funcionarioAPI, $location)
 {
-    $scope.funcionarioTurno = funcionarioTurno.data;
-    $scope.funcionario = funcionario.data;
-    $scope.diaFunc = diaFunc.data;
-    $scope.turnoFunc = turnoFunc.data;
 
+    $scope.turnos_funcionario = turnos_funcionario.data;
+
+    var ToObject = function (turnos_funcionario) {
+        return {
+            idt_turnos_funcionario: turnos_funcionario[0].idt_turnos_funcionario,
+            cod_funcionario: turnos_funcionario[0].cod_funcionario,
+            cod_dia: turnos_funcionario[0].cod_dia,
+            cod_turno: turnos_funcionario[0].cod_turno
+        };
+    }
 
     funcionarioAPI.getDias().success(function (data) {
         $scope.dias = data;
@@ -30,19 +36,11 @@ angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($sc
     //     }
     // )};
 
-    $scope.AdicionarTurno = function (turnos_funcionario) {
-        $scope.adicionar;
-        funcionarioAPI.postTurnosFuncionario(turnos_funcionario).success(function (data) {
-            $scope.turnos_funcionario = data;
-            $scope.funcionarioTurno.push(funcionarioTurno);
-        });
-    };
-
     $scope.AtualizarTurno = function (turnos_funcionario) {
-        $scope.atualizar;
+        $scope.atualizarTurno;
         funcionarioAPI.putTurnosFuncionario(turnos_funcionario).success(function (data) {
-            $scope.turnos_funcionario = data;
-            $scope.funcionarioTurno.push(funcionarioTurno);
+            //$scope.turnos_funcionario = data;
+            $location.path("/listFuncionarios")
         });
     };
 
@@ -52,5 +50,5 @@ angular.module("SiAR").controller("AtualizarTurnoFuncionarioCtrl", function ($sc
              alert("Turno excluido com sucesso!");
         });
     };
-
+    $scope.turnos_funcionario = ToObject(turnos_funcionario.data);
 });
