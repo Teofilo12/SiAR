@@ -94,9 +94,10 @@ angular.module("SiAR").config(function($routeProvider){
         templateUrl: "view/AtualizarTurnoFuncionario.html",
         controller: "AtualizarTurnoFuncionarioCtrl",
         resolve:{
-            AtualizarTurnoFuncionario: function(funcionarioAPI, $route){
-                return funcionarioAPI.getTurnosFuncionario($route.current.params.idt_turnos_funcionario);
+            turnos_funcionario: function(funcionarioAPI, $route){
+                return funcionarioAPI.getTurnoFuncionario($route.current.params.idt_turnos_funcionario);
             }
+
         }
 
     });
