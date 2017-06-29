@@ -27,14 +27,14 @@
         margin-left: 1%;
     }
     .form-signin-heading{
-        text-align: left;
-        margin-top: -2%;
-        margin-left: 1%;
+        font-family: 'Lato', sans-serif;
+        font-size: 30px;
+        margin-top: -10px;
     }
 </style>
 <div class="jumbotron">
     <form name="pontoManualForm" class="form-signin">
-        <h2 class="form-signin-heading">Bater Ponto Manual:</h2>
+        <h2 class="form-signin-heading" align="left">Bater <b>Ponto Manual:</b></h2>
         <br>
         <select class="form-control" ng-model="ponto_eletronico.cod_funcionario" ng-options="func.cpf_funcionario as func.nme_funcionario for func in funcionario" required id="linha2">
             <option value="">Funcionário</option>
