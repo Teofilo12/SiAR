@@ -1,19 +1,55 @@
 <style>
-    .jumbotron{
-        width: 800px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .center{
-        margin-left: auto;
-        margin-right: auto;
-    }
+.container{
+    margin-left:17.5%;
+}
+#button{
+    width: 40%;
+    font-size: 15px;
+    margin-left: 1%;
+    margin-top:-1.5%;
+    letter-spacing: 1.5px;
+}
 </style>
-<div class="jumbotron" ng-repeat="carda in cardapio">
-    <a href="#/atualizarCardapio/{{carda.idt_cardapio}}" class="list-group-item list-group-item-action flex-column align-items-start active">
-        <div class="d-flex w-100 justify-content-between">
-            <h2 class="mb-1">{{carda.itm_cardapio}}</h2>
-            <small>{{carda.dsc_itm_cardapio}}</small>
+
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body" ng-repeat="carda in cardapio">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
+              display:block; margin:auto;height: 55%;width: 55%;" src="img/{{carda.itm_cardapio}}.jpg" >
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="only-bottom-margin">{{carda.itm_cardapio}}</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="text-muted">Descrição:</span>{{carda.dsc_itm_cardapio}}<br>
+                                    <span class="text-muted">Preço R$:</span>{{carda.vlr_itm_cardapio}}<br><br>
+
+                                    <a id="button"class="btn btn-lg btn-primary btn-block" href="#/atualizarCardapio/{{carda.idt_cardapio}}">Editar</a>
+<br>
+                                </div>
+                                <div class="col-md-12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                    <hr>
+                </div>
+
+            </div>
         </div>
+    </div>
 </div>
